@@ -22,9 +22,10 @@ class	PhoneBook
 
 private:
 
-	Contact		_contacts[8];
-	int			_size;
-	bool		_running;
+	Contact				_contacts[8];
+	int					_size;
+	unsigned long int	_iterator;
+	bool				_running;
 
 public:
 
@@ -36,6 +37,7 @@ public:
 	void	exit(void);
 	bool	get_Running(void) const;
 	void	set_Running(bool value);
+	void	incrementIterator(void);
 
 };
 
