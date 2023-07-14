@@ -16,7 +16,7 @@ int	main()
 
 	while (phoneBook.get_Running())
 	{
-		std::cout << GREEN << "Inserisci un comando" << RESET << std::endl;
+		std::cout << GREEN << "Insert a command" << RESET << std::endl;
 		std::cin >> command;
 		if (!command.compare("ADD"))
 			phoneBook.add();

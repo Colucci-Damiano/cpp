@@ -34,6 +34,7 @@ public:
 
 	PhoneBook(void);
 	~PhoneBook(void);
+	void	help(void) const;
 	void	add(void);
 	void	search(void) const;
 	bool	get_Running(void) const;

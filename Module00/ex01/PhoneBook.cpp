@@ -1,5 +1,6 @@
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <limits>
 
 PhoneBook::PhoneBook(void)
 {
@@ -37,6 +38,13 @@ std::string	PhoneBook::_instertField(std::string outputMess) const
 	return (input);
 }
 
+void	PhoneBook::help(void) const
+{
+	std::cout << "ADD : add a contact in the phonebook" << std::endl;
+	std::cout << "SEARCH : search for a specific contact in the phonebook" << std::endl;
+	std::cout << "EXIT : close the phonebook" << std::endl;
+}
+
 void	PhoneBook::add(void)
 {
 	Contact		contact;
@@ -55,8 +63,9 @@ void	PhoneBook::add(void)
 
 void	PhoneBook::search(void) const
 {
-	int		input;
+	unsigned long int		input;
 
+	input = -1;
 	std::cout << "Searching...." << std::endl;
 
 	std::cout << "\033[4m";
@@ -70,9 +79,19 @@ void	PhoneBook::search(void) const
 	do
 	{
 		std::cout << "Select a valid contact ID (0-7)" << std::endl;
-		std::cin >> input;
+		if (!(std::cin >> input))
+		{
+			std::cout << "Invalid input!" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			input = -1;
+		}
+		else
+		{
+			std::cout << "Input is :" << input << std::endl;
+		}
 	}
-	while (input < 0 || input > 7);
+	while (input > 7);
 	std::cout << std::endl;
 	std::cout << "\033[4m" << "Contact id " << input << " INFO" << "\033[0m" << std::endl;
 	this->_contacts[input].displayFullContact();
