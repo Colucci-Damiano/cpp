@@ -5,7 +5,7 @@ SRCS := main.cpp Contact.cpp PhoneBook.cpp
 OBJS := $(SRCS:.cpp=.o)
 
 CC := g++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 all: $(NAME)
 

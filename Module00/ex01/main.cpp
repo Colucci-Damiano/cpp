@@ -23,7 +23,7 @@ int	main()
 		else if (!command.compare("SEARCH"))
 			phoneBook.search();
 		else if (!command.compare("EXIT"))
-			phoneBook.exit();
+			phoneBook.set_Running(false);
 		else
 			std::cout << RED << command << " : opzione non valida!" \
 			<< RESET << std::endl;

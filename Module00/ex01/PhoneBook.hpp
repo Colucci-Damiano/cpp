@@ -26,18 +26,18 @@ private:
 	int					_size;
 	unsigned long int	_iterator;
 	bool				_running;
+	void				_incrementIterator(void);
+	std::string			_instertField(std::string output) const;
+	std::string			_insertNumber(std::string output) const;
 
 public:
 
 	PhoneBook(void);
 	~PhoneBook(void);
-
 	void	add(void);
 	void	search(void) const;
-	void	exit(void);
 	bool	get_Running(void) const;
 	void	set_Running(bool value);
-	void	incrementIterator(void);
 
 };
 
