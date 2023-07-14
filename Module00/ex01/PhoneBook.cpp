@@ -55,14 +55,27 @@ void	PhoneBook::add(void)
 
 void	PhoneBook::search(void) const
 {
+	int		input;
+
 	std::cout << "Searching...." << std::endl;
 
-	std::cout << "_____________________________________________" << std::endl;
-	std::cout << "|____ID____|___NAME___|LAST_NAME_|NICK_NAME_|" << std::endl;
+	std::cout << "\033[4m";
+	std::cout << "PHONEBOOK" << std::endl;
+	std::cout << "|    ID    |   NAME   |LAST NAME | NICKNAME |" << std::endl;
 	for(int i = 0; i < this->_size; i++)
 	{
 		this->_contacts[i].displaySearchContact(i);
 	}
+	std::cout << "\033[0m" << std::endl;
+	do
+	{
+		std::cout << "Select a valid contact ID (0-7)" << std::endl;
+		std::cin >> input;
+	}
+	while (input < 0 || input > 7);
+	std::cout << std::endl;
+	std::cout << "\033[4m" << "Contact id " << input << " INFO" << "\033[0m" << std::endl;
+	this->_contacts[input].displayFullContact();
 }
 
 void	PhoneBook::_incrementIterator(void)

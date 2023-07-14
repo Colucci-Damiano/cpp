@@ -70,6 +70,15 @@ void		Contact::setDarkestSecret(std::string secret)
 	this->_darkestSecret = secret;
 }
 
+void	Contact::displayFullContact(void) const
+{
+	std::cout << "First Name : " << this->getFirstName() << std::endl;
+	std::cout << "Last Name : " << this->getLastName() << std::endl;
+	std::cout << "Nickname : " << this->getNickname() << std::endl;
+	std::cout << "Phone number : " << this->getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret : " << this->getDarkestSecret() << std::endl;
+}
+
 std::string	Contact::resizeField(std::string field) const
 {
 	if (field.length() > 10)

@@ -33,6 +33,7 @@ public:
 	void		setPhoneNumber(std::string phone);
 	void		setDarkestSecret(std::string secret);
 
+	void		displayFullContact(void) const;
 	std::string	resizeField(std::string field) const;
 	void		displaySearchContact(int id) const;
 };
