@@ -1,10 +1,11 @@
+
 NAME := phonebook
 
 SRCS := main.cpp Contact.cpp PhoneBook.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
-CC := g++
+CC := c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 all: $(NAME)

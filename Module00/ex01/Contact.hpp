@@ -33,9 +33,9 @@ public:
 	void		setPhoneNumber(std::string phone);
 	void		setDarkestSecret(std::string secret);
 
+	void		displaySearchContact(int id) const;
 	void		displayFullContact(void) const;
 	std::string	resizeField(std::string field) const;
-	void		displaySearchContact(int id) const;
 };
 
 #endif

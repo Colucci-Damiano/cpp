@@ -1,3 +1,4 @@
+
 #include "Contact.hpp"
 #include <iostream>
 #include <sstream>
@@ -6,18 +7,14 @@ Contact::Contact(std::string fN, std::string lN, std::string nN, \
 std::string pN, std::string dS) : _firstName(fN), _lastName(lN), \
 _nickName(nN), _phoneNumber(pN), _darkestSecret(dS)
 {
-	std::cout << "Constructor initialization list called" << std::endl;
 }
 
 Contact::Contact(void)
 {
-	std::cout << "Constructor called for Contact" << std::endl;
-	return ;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Destructor called for Contact" << std::endl;
 }
 
 std::string		Contact::getFirstName(void) const
@@ -70,15 +67,6 @@ void		Contact::setDarkestSecret(std::string secret)
 	this->_darkestSecret = secret;
 }
 
-void	Contact::displayFullContact(void) const
-{
-	std::cout << "First Name : " << this->getFirstName() << std::endl;
-	std::cout << "Last Name : " << this->getLastName() << std::endl;
-	std::cout << "Nickname : " << this->getNickname() << std::endl;
-	std::cout << "Phone number : " << this->getPhoneNumber() << std::endl;
-	std::cout << "Darkest secret : " << this->getDarkestSecret() << std::endl;
-}
-
 std::string	Contact::resizeField(std::string field) const
 {
 	if (field.length() > 10)
@@ -107,4 +95,14 @@ void	Contact::displaySearchContact(int id) const
 	std::cout << this->resizeField(this->getNickname());
 	std::cout << "|";
 	std::cout << std::endl;
+}
+
+void	Contact::displayFullContact(void) const
+{
+	std::cout << std::endl;
+	std::cout << "	First Name : " << this->getFirstName() << std::endl;
+	std::cout << "	Last Name : " << this->getLastName() << std::endl;
+	std::cout << "	Nickname : " << this->getNickname() << std::endl;
+	std::cout << "	Phone number : " << this->getPhoneNumber() << std::endl;
+	std::cout << "	Darkest secret : " << this->getDarkestSecret() << std::endl;
 }

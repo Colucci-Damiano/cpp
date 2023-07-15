@@ -1,6 +1,8 @@
+
 #include <iostream>
 #include <string>
 #include <list>
+#include <limits>
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
@@ -16,17 +18,29 @@ int	main()
 
 	while (phoneBook.get_Running())
 	{
-		std::cout << GREEN << "Insert a command" << RESET << std::endl;
+		phoneBook.help();
+		std::cout << ">>\033[32m";
 		std::cin >> command;
-		if (!command.compare("ADD"))
+		std::cout << "\033[0m" << std::endl;
+		if (std::cin.eof())
+		{
+			std::cout << "EOF signal received. Restarting input." << std::endl;
+
+                // Clear the fail state
+                std::cin.clear();
+
+                // Ignore remaining characters in the input buffer
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                continue;
+		}
+		else if (!command.compare("ADD"))
 			phoneBook.add();
 		else if (!command.compare("SEARCH"))
 			phoneBook.search();
 		else if (!command.compare("EXIT"))
 			phoneBook.set_Running(false);
 		else
-			std::cout << RED << command << " : opzione non valida!" \
-			<< RESET << std::endl;
+			std::cout << "Invlaid option : " << RED << command << RESET << std::endl;
 	}
 	return (0);
 }
