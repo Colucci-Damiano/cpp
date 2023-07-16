@@ -1,7 +1,7 @@
 
-NAME := 
+NAME := bank
 
-SRCS := 
+SRCS := tests.cpp Account.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
