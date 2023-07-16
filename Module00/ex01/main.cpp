@@ -18,22 +18,13 @@ int	main()
 
 	while (phoneBook.get_Running())
 	{
+		if (std::cin.eof())
+			break ;
 		phoneBook.help();
 		std::cout << ">>\033[32m";
-		std::cin >> command;
+		std::getline(std::cin, command);
 		std::cout << "\033[0m" << std::endl;
-		if (std::cin.eof())
-		{
-			std::cout << "EOF signal received. Restarting input." << std::endl;
-
-                // Clear the fail state
-                std::cin.clear();
-
-                // Ignore remaining characters in the input buffer
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                continue;
-		}
-		else if (!command.compare("ADD"))
+		if (!command.compare("ADD"))
 			phoneBook.add();
 		else if (!command.compare("SEARCH"))
 			phoneBook.search();

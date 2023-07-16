@@ -27,7 +27,7 @@ public:
 	void	search(void) const;
 	bool	get_Running(void) const;
 	void	set_Running(bool value);
-
+	bool	isNumber(std::string str) const;
 };
 
 #endif

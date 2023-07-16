@@ -3,6 +3,7 @@
 #include <iostream>
 #include <limits>
 #include <sstream>
+#include <cstdlib>
 
 PhoneBook::PhoneBook(void)
 {
@@ -25,18 +26,6 @@ void	PhoneBook::set_Running(bool value)
 	this->_running = value;
 }
 
-std::string	PhoneBook::_instertField(std::string outputMess) const
-{
-	std::string	input;
-
-	while (!std::cin.eof() && !std::cin.fail())
-	{
-		std::cout << outputMess << std::endl;
-		std::cin >> input;
-	}
-	return (input);
-}
-
 void	PhoneBook::help(void) const
 {
 	std::cout << std::endl << "\033[46mInsert a command for the PhoneBook\033[0m" << std::endl;
@@ -47,6 +36,46 @@ void	PhoneBook::help(void) const
 	std::cout << std::endl;
 }
 
+std::string	PhoneBook::_instertField(std::string outputMess) const
+{
+	std::string	input;
+
+	while (1)
+	{
+		std::cout << outputMess << std::endl;
+		std::cout << ">>" ;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (input);
+		if (input.length() == 0)
+				std::cout << "\033[31mThe phonebook can't have empty fields\033[0m" << std::endl;
+		else
+			break ;
+	}
+	return (input);
+}
+
+std::string PhoneBook::_insertNumber(std::string outputMess) const
+{
+	std::string	input;
+
+	while (1)
+	{
+		std::cout << outputMess << std::endl;
+		std::cout << ">>" ;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (input);
+		if (input.length() == 0)
+				std::cout << "\033[31mThe phonebook can't have empty fields\033[0m" << std::endl;
+		else if (!isNumber(input))
+			std::cout << "\033[31mInstert only digit chars\033[0m" << std::endl;
+		else
+			break ;
+	}
+	return (input);
+}
+
 void	PhoneBook::add(void)
 {
 	Contact		contact;
@@ -55,7 +84,7 @@ void	PhoneBook::add(void)
 	contact.setFirstName(this->_instertField("Insert name"));
 	contact.setLastName(this->_instertField("Inster last name"));
 	contact.setNickName(this->_instertField("Insert nick name"));
-	contact.setPhoneNumber(this->_instertField("Insert phone number"));
+	contact.setPhoneNumber(this->_insertNumber("Insert phone number"));
 	contact.setDarkestSecret(this->_instertField("Insert your darkest secret 👹"));
 	this->_contacts[this->_iterator] = contact;
 	this->_incrementIterator();
@@ -63,23 +92,23 @@ void	PhoneBook::add(void)
 
 int		PhoneBook::_insertIdSearch(void) const
 {
-	int		id;
+	int				id;
+	std::string		input;
 
 	std::cout << "Insert a valid id contact [0-7]" << std::endl;
 	do
 	{
 		std::cout << ">>" ;
-		std::cin >> id;
-		if (std::cin.fail())
-		{
-			if (std::cin.eof())
-				return (0);
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (-1);
+		if (input.length() == 0)
+			std::cout << "The phonebook can't have empty fields" << std::endl;
+		if (!isNumber(input))
 			std::cout << "\033[31mInsert an integer\033[0m" << std::endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		}
 		else
 		{
+			id = std::atoi(input.c_str());
 			if (id < 0 || id > 7)
 				std::cout << "\033[31mInsert a value between 0 and 7\033[0m" << std::endl;
 			else
@@ -104,6 +133,8 @@ void	PhoneBook::search(void) const
 	}
 	std::cout << "\033[0m" << std::endl;
 	id = this->_insertIdSearch();
+	if (id < 0 || id > 7)
+		return ;
 	std::cout << std::endl;
 	std::cout << "\033[4;33m" << "INFO\033[4;0m " << "of contact id : " << id << "\033[0m" << std::endl;
 	this->_contacts[id].displayFullContact();
@@ -116,3 +147,20 @@ void	PhoneBook::_incrementIterator(void)
 	this->_iterator = this->_iterator % this->_size;
 }
 
+bool	PhoneBook::isNumber(std::string str) const
+{
+	int			i;
+	const char	*add;
+
+	i = 0;
+	add = str.c_str();
+	if (add[i] == '-' || add[i] == '+')
+		i++;
+	while (add[i])
+	{
+		if (!isdigit(add[i]))
+			return (false);
+		i++;
+	}
+	return (true);
+}
