@@ -1,6 +1,18 @@
 
 #include <iostream>
+#include <ctime>
 #include "Account.hpp"
+
+void	printTimeStamp()
+{
+	std::time_t currentTime = std::time(NULL);
+	std::tm* timeinfo = std::localtime(&currentTime);
+	char buffer[80];
+
+	std::strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", timeinfo);
+    
+	std::cout << "[" << buffer << "] ";
+}
 
 int	Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -29,6 +41,7 @@ int	Account::getNbWithdrawals(void)
 
 void	Account::displayAccountsInfos(void)
 {
+	printTimeStamp();
 	std::cout << "accounts:" << Account::getNbAccounts() << ";";
 	std::cout << "total:" << Account::getTotalAmount() << ";";
 	std::cout << "deposits:" << Account::getNbDeposits() << ";";
@@ -43,6 +56,7 @@ Account::Account(int initialDeposit)
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals = 0;
 
+	printTimeStamp();
 	std::cout << "index:";
 	std::cout << this->_accountIndex << ";";
 	std::cout << "amount:";
@@ -56,6 +70,7 @@ Account::Account(int initialDeposit)
 
 Account::~Account(void)
 {
+	printTimeStamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->checkAmount() << ";";
 	std::cout << "closed" << std::endl;
@@ -72,6 +87,7 @@ void	Account::makeDeposit(int deposit)
 	Account::_totalAmount += deposit;
 	Account::_totalNbDeposits += 1;
 
+	printTimeStamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << pAmount << ";";
 	std::cout << "deposit:" << deposit << ";";
@@ -89,6 +105,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 	pAmount = this->checkAmount();
 	if (pAmount < withdrawal)
 		valid = false;
+	printTimeStamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "p_amount" << pAmount << ";";
 	if (valid)
@@ -114,6 +131,7 @@ int		Account::checkAmount(void) const
 
 void	Account::displayStatus(void) const
 {
+	printTimeStamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->_amount << ";";
 	std::cout << "deposits:" << this->_nbDeposits << ";";
