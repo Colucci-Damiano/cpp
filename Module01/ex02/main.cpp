@@ -8,5 +8,11 @@ int	main(void)
 	std::string*	stringPTR = &string;
 	std::string&	stringREF = string;
 
-	std::cout << "Address of the string variable: " << stringPTR;
+	std::cout << "Address of the string variable: " << &string << std::endl;
+	std::cout << "Address held by the stringPTR: " << &stringPTR << std::endl;
+	std::cout << "Address held by stringREF: " << &stringREF << std::endl;
+
+	std::cout << "Value of the string variable: " << string << std::endl;
+	std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
+	std::cout << "Value pointed to by stringREF: " << stringREF << std::endl;
 }
