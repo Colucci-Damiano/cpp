@@ -8,11 +8,11 @@ class	Zombie
 {
 	public:
 
-		Zombie(void);											//Default constructor
+		Zombie(void);										//Default constructor
 		Zombie(std::string name);
-		~Zombie(void);											//Copy constructor
+		~Zombie(void);										//Copy constructor
 		Zombie(const Zombie &zombie);						//Destructor
-		Zombie & operator = (const Zombie &zombie);	//Copy assignment operator
+		Zombie & operator = (const Zombie &zombie);			//Copy assignment operator
 
 		void			announce(void) const;
 
@@ -20,5 +20,8 @@ class	Zombie
 
 		std::string		_name;
 };
+
+Zombie*	newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif
