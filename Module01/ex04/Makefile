@@ -1,19 +1,16 @@
 
-NAME := thisIsBrain
+NAME := replace
 
-SRCS := main.cpp
+SRCS :=	main.cpp \
 
 OBJS := $(SRCS:.cpp=.o)
 
 CC := c++
-
 CFLAGS := -Wall -Werror -Wextra
 
+INC :=	
+
 STD := -std=c++98
-
-INC :=
-
-RM := rm -rf
 
 all: $(NAME)
 
@@ -24,12 +21,11 @@ $(NAME): $(OBJS)
 	@ $(CC) $(CFLAGS) $(STD) -c -o $@ $<
 
 clean:
-	@ $(RM) $(OBJS)
+	@ rm -rf $(OBJS)
 
 fclean: clean
-	@ $(RM) $(NAME)
+	@ rm -rf $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
-	
