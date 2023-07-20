@@ -11,15 +11,15 @@ class	HumanA
 
 		HumanA(std::string name, Weapon &weapon);
 		~HumanA();
-		HumanA(const HumanA &humanA);
-		HumanA & operator = (const HumanA &humanA);
+		//HumanA(const HumanA &humanA);
+		//HumanA & operator = (const HumanA &humanA);
 
 		void			attack(void) const;
 
 	private:
 
-		Weapon			_weapon;
 		std::string		_name;
+		Weapon			&_weapon;
 };
 
 #endif

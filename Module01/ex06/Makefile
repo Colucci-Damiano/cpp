@@ -1,5 +1,5 @@
 
-NAME := harl
+NAME := harlFilter
 
 SRCS :=	main.cpp \
 		Harl.cpp \

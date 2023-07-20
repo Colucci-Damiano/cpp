@@ -4,12 +4,8 @@
 #include <string>
 #include <iostream>
 
-//Devo passare una reference?
-
-HumanA::HumanA(std::string name, Weapon &weapon)
+HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
 {
-	this->_name = name;
-	this->_weapon = weapon;
 }
 
 HumanA::~HumanA(void){}

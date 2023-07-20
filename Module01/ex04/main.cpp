@@ -1,4 +1,17 @@
 
+/*
+	Una volta c'era un programmatore di nome Carlo che amava risolvere enigmi e problemi complessi. 
+Un giorno, mentre stava lavorando su un progetto in C++, si trovò di fronte a un dilemma intrigante: 
+doveva sostituire parti di una stringa senza poter utilizzare il metodo std::string::replace(). 
+Carlo non si diede per vinto e decise di affrontare la sfida.
+
+Iniziò a ragionare sul problema e pensò: 
+"Se non posso utilizzare il metodo replace(), dovrò trovare un modo alternativo per manipolare la stringa". 
+Mentre cercava una soluzione creativa, gli venne in mente un'altra funzione molto utile:
+std::string::substr(), che restituisce una sottostringa di una stringa.
+
+*/
+
 #include <iostream>
 #include <string>
 #include <fstream>
