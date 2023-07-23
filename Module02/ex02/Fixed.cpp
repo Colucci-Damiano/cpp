@@ -10,9 +10,7 @@ Fixed::Fixed( void )
 	this->setRawBits(0);
 }
 
-Fixed::~Fixed( void )
-{
-}
+Fixed::~Fixed( void ){}
 
 Fixed::Fixed( const Fixed &fixed )
 {
@@ -36,7 +34,7 @@ Fixed::Fixed( const float raw )
 	this->setRawBits( ( int ) result );
 }
 
-Fixed & Fixed::operator= ( const Fixed &fixed )
+Fixed	&Fixed::operator= ( const Fixed &fixed )
 {
 	if (this != &fixed)
 	{
