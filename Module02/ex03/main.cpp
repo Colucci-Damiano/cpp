@@ -5,10 +5,12 @@
 
 int	main()
 {
-	Point	a(3, 3);
-	Point	b(0, 0);
-	Point	c(3, 0);
+	Point	const a(1, 1);
+	Point	const b(1, 1);
+	Point	const c(7, 18);
 
-	Point	p(5, 5);
-	std::cout << bsp(a, b, c, p) << std::endl;
+	Point	const p(1.5f , 1.5f);
+
+	if (!bsp(a, b, c, p))
+		std::cout << "ENDL" << std::endl;
 }

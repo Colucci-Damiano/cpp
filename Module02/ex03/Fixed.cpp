@@ -111,10 +111,12 @@ Fixed	Fixed::operator+(const Fixed &fixed) const
 
 Fixed	Fixed::operator-(const Fixed &fixed) const
 {
-	int	diff;
+	int		diff;
+	Fixed	obj;
 
 	diff = this->getRawBits() - fixed.getRawBits();
-	return (Fixed(diff));
+	obj.setRawBits(diff);
+	return (obj);
 }
 
 Fixed	Fixed::operator*(const Fixed &fixed) const
@@ -133,6 +135,11 @@ Fixed	Fixed::operator/(const Fixed &fixed) const
 	long int	div;
 	Fixed		obj;
 
+	if (fixed.getRawBits() == 0)
+	{
+		std::cout << "\033[31mDivision by zero\033[0m" << std::endl;
+		std::cout << this->toFloat() << "    " << fixed << std::endl;
+	}
 	div = ((long int )this->getRawBits() << this->_fractBits) / ((long int)fixed.getRawBits());
 	obj.setRawBits(div);
 	return (obj);

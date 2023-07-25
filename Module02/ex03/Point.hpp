@@ -16,6 +16,7 @@ class Point
 
 		const Fixed		getX( void ) const;
 		const Fixed		getY( void ) const;
+		bool			operator==( Point const &point) const;
 		void			printPoint( void ) const;
 
 	private:

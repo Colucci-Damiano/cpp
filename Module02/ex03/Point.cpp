@@ -42,6 +42,13 @@ Fixed const		Point::getY( void ) const
 	return (this->_y);
 }
 
+bool	Point::operator==( const Point &point ) const
+{
+	if (this->getX() == point.getX() && this->getY() == this->getY())
+		return (true);
+	return(false);
+}
+
 void	Point::printPoint( void ) const 
 {
 	std::cout << "(" << this->_x << ", " << this->_y << ")" << std::endl;

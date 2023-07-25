@@ -111,10 +111,12 @@ Fixed	Fixed::operator+(const Fixed &fixed) const
 
 Fixed	Fixed::operator-(const Fixed &fixed) const
 {
-	int	diff;
+	int		diff;
+	Fixed	obj;
 
 	diff = this->getRawBits() - fixed.getRawBits();
-	return (Fixed(diff));
+	obj.setRawBits(diff);
+	return (obj);
 }
 
 Fixed	Fixed::operator*(const Fixed &fixed) const
