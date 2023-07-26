@@ -8,10 +8,6 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	_name = "bot";
-	_hitPoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 20;
 	std::cout << "Constructor called for ScavTrap " << this->_name << std::endl;
 }
 
