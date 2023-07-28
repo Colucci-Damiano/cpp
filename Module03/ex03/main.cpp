@@ -7,5 +7,8 @@
 
 int	main()
 {
-	
+	DiamondTrap	diamond("LUDRO");
+
+	diamond.printStats();
+	diamond.whoAmI();
 }

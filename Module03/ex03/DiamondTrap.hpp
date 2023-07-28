@@ -7,7 +7,7 @@
 # include "ScavTrap.hpp"
 # include <string>
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class DiamondTrap : virtual public FragTrap, virtual  public ScavTrap
 {
 	public:
 
@@ -16,10 +16,14 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap( const DiamondTrap &diamond );
 		DiamondTrap	&operator=( const DiamondTrap &diamond );
 		~DiamondTrap();
+		void		whoAmI( void ) const;
+		void		printStats( void ) const;
+		using		ScavTrap::attack;
 
 	private:
 
-		std::string		_name;
+		std::string			_name;
+		//using				FragTrap::_attackDamage;
 };
 
 #endif
