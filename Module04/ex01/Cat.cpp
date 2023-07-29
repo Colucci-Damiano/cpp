@@ -1,44 +1,49 @@
 
 #include "Animal.hpp"
-#include "Dog.hpp"
-#include <string>
+#include "Cat.hpp"
 #include <iostream>
 
 // Default constructor
 
-Dog::Dog() : Animal()
+Cat::Cat() : Animal(), brain(new Brain)
 {
-	this->_type = "Dog";
+	this->_type = "Cat";
 	std::cout << "Default constructor called for " << this->_type << std::endl;
 }
 
 // Copy constructor
 
-Dog::Dog( const Dog &dog ) : Animal( dog )
+Cat::Cat( const Cat &cat ) : Animal( cat )
 {
-	if (this != &dog)
-		*this = dog;
+	if (this != &cat)
+		*this = cat;
 	std::cout << "Copy constructor called for " << this->_type << std::endl;
 }
 
 // Copy assignment operator
 
-Dog		&Dog::operator=( const Dog &dog )
+Cat		&Cat::operator=( const Cat &cat )
 {
-	if (this != &dog)
-		this->_type = dog._type;
+	if (this != &cat)
+	{
+		delete(this->brain);
+		this->brain = new Brain;
+		*(this->brain) = *(cat.brain);
+		this->_type = cat._type;
+	}
 	std::cout << "Copy assignment operator called for " << this->_type << std::endl;
 	return (*this);
 }
 
 // Default constructor
 
-Dog::~Dog()
+Cat::~Cat()
 {
+	delete (this->brain);
 	std::cout << "Destructor called for " << this->_type << std::endl;
 }
 
-void	Dog::makeSound( void ) const
+void	Cat::makeSound( void ) const
 {
-	std::cout << "WOFWOF" << std::endl;
+	std::cout << "MEOW" << std::endl;
 }
