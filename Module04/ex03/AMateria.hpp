@@ -22,6 +22,7 @@ class AMateria
 
 	protected:
 
+		std::string		_type;
 
 };
 

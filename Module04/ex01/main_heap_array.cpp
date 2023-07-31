@@ -7,7 +7,6 @@ int	main( void )
 {
 	const int	size = 100;
 	Animal	**animals = new Animal*[size];
-	(void)animals;
 
 	for (int i = 0; i < size; i++)
 	{

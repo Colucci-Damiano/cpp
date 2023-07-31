@@ -1,7 +1,10 @@
 
 NAME	:=	animal
 
-SRCS	:=	
+SRCS	:=	AMateria.cpp \
+			Cure.cpp \
+			Ice.cpp \
+
 
 OBJS	:=	$(SRCS:.cpp=.o)
 
@@ -11,7 +14,13 @@ CFLAGS	:=	-Wall -Werror -Wextra
 
 STD		:=	-std=c++98
 
-INC		:=	
+INC		:=	AMateria.hpp \
+			Character.hpp \
+			Cure.hpp \
+			Ice.hpp \
+			ICharacter.hpp \
+			IMateriaSource.hpp \
+			MateriaSource.hpp \
 
 RM		:=	rm -rf
 
