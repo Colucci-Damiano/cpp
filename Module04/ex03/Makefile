@@ -1,10 +1,7 @@
 
 NAME	:=	animal
 
-SRCS	:=	main.cpp \
-		Animal.cpp \
-		Dog.cpp	\
-		Cat.cpp \
+SRCS	:=	
 
 OBJS	:=	$(SRCS:.cpp=.o)
 
@@ -14,9 +11,7 @@ CFLAGS	:=	-Wall -Werror -Wextra
 
 STD		:=	-std=c++98
 
-INC		:=	Animal.hpp \
-			Dog.hpp \
-			Cat.hpp \
+INC		:=	
 
 RM		:=	rm -rf
 

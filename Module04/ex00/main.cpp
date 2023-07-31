@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 
+// Implement WrongAnimal and WrongCat !!
+
 int main()
 {
 	const Animal* meta = new Animal();

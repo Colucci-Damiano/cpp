@@ -1,11 +1,11 @@
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include <string>
 #include <iostream>
 
 // Default constructor
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
 	this->_type = "Animal";
 	std::cout << "Default constructor called for class Animal" << std::endl;
@@ -13,7 +13,7 @@ Animal::Animal()
 
 // Copy constructor
 
-Animal::Animal( const Animal &animal )
+AAnimal::AAnimal( const AAnimal &animal )
 {
 	if (this != &animal)
 		*this = animal;
@@ -22,7 +22,7 @@ Animal::Animal( const Animal &animal )
 
 // Copy assignment operator
 
-Animal	&Animal::operator=( const Animal &animal )
+AAnimal	&AAnimal::operator=( const AAnimal &animal )
 {
 	if (this != &animal)
 	{
@@ -34,17 +34,17 @@ Animal	&Animal::operator=( const Animal &animal )
 
 // Default destructor
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
 	std::cout << "Destructor called for class Animal" << std::endl;
 }
 
-void	Animal::makeSound( void ) const
+void	AAnimal::makeSound( void ) const
 {
 	std::cout << "IM AN ANIMAAAAL" << std::endl;	
 }
 
-std::string		Animal::getType( void ) const
+std::string		AAnimal::getType( void ) const
 {
 	return (this->_type);
 }

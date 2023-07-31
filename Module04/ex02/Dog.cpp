@@ -1,12 +1,12 @@
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include <string>
 #include <iostream>
 
 // Default constructor
 
-Dog::Dog() : Animal()
+Dog::Dog() : AAnimal()
 {
 	this->_brain = new Brain();
 	this->_type = "Dog";
@@ -15,7 +15,7 @@ Dog::Dog() : Animal()
 
 // Copy constructor
 
-Dog::Dog( const Dog &dog ) : Animal( dog )
+Dog::Dog( const Dog &dog ) : AAnimal( dog )
 {
 	if (this != &dog)
 		*this = dog;

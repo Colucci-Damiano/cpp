@@ -1,8 +1,8 @@
 
-NAME	:=	animal
+NAME	:=	abstractAnimal
 
 SRCS	:=	main.cpp \
-			Animal.cpp \
+			AAnimal.cpp \
 			Dog.cpp	\
 			Cat.cpp \
 			Brain.cpp \
@@ -15,7 +15,7 @@ CFLAGS	:=	-Wall -Werror -Wextra
 
 STD		:=	-std=c++98
 
-INC		:=	Animal.hpp \
+INC		:=	AAnimal.hpp \
 			Dog.hpp \
 			Cat.hpp \
 			Brain.hpp \

@@ -2,10 +2,10 @@
 #ifndef	DOG_HPP
 # define DOG_HPP
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Dog : public Animal
+class Dog : public AAnimal
 {
 	public:
 
@@ -14,7 +14,7 @@ class Dog : public Animal
 		Dog	&operator=( const Dog &cat );
 		virtual ~Dog();
 
-		void 	makeSound( void ) const;
+		void 			makeSound( void ) const;
 
 	private:
 
