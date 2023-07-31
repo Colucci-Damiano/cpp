@@ -11,7 +11,7 @@ OBJS	:=	$(SRCS:.cpp=.o)
 
 CC		:=	c++
 
-CFLAGS	:=	-Wall -Werror -Wextra
+CFLAGS	:=	-Wall -Werror -Wextra -g
 
 STD		:=	-std=c++98
 

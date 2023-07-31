@@ -2,9 +2,10 @@
 NAME	:=	animal
 
 SRCS	:=	main.cpp \
-		Animal.cpp \
-		Dog.cpp	\
-		Cat.cpp \
+			Animal.cpp \
+			Dog.cpp	\
+			Cat.cpp \
+			Brain.cpp \
 
 OBJS	:=	$(SRCS:.cpp=.o)
 
@@ -17,6 +18,7 @@ STD		:=	-std=c++98
 INC		:=	Animal.hpp \
 			Dog.hpp \
 			Cat.hpp \
+			Brain.hpp \
 
 RM		:=	rm -rf
 

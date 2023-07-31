@@ -1,4 +1,3 @@
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Brain.hpp"
@@ -7,7 +6,8 @@
 int	main( void )
 {
 	const int	size = 100;
-	Animal	*animals[size];
+	Animal	**animals = new Animal*[size];
+	(void)animals;
 
 	for (int i = 0; i < size; i++)
 	{
@@ -16,9 +16,11 @@ int	main( void )
 		else
 			animals[i] = new Cat();
 	}
-	std::cout << "\033[32mStart deleting\033[0m" << std::endl;
+
 	for (int i = 0; i < size; i++)
 	{
-		delete(animals[i]);
+		delete (animals[i]);
 	}
+
+	delete [] animals;
 }
