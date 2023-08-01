@@ -2,7 +2,7 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include "Contact.hpp"
+# include "Contact.hpp"
 
 class	PhoneBook
 {
@@ -22,12 +22,13 @@ public:
 
 	PhoneBook(void);
 	~PhoneBook(void);
-	void	help(void) const;
-	void	add(void);
-	void	search(void) const;
-	bool	get_Running(void) const;
-	void	set_Running(bool value);
-	bool	isNumber(std::string str) const;
+
+	void				help(void) const;
+	void				add(void);
+	void				search(void) const;
+	bool				get_Running(void) const;
+	void				set_Running(bool value);
+	bool				isNumber(std::string str) const;
 };
 
 #endif

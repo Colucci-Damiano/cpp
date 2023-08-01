@@ -1,5 +1,6 @@
-#ifndef Ice_HPP
-# define Ice_HPP
+
+#ifndef ICE_HPP
+# define ICE_HPP
 
 # include "AMateria.hpp"
 # include "ICharacter.hpp"

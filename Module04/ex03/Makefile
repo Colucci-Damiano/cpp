@@ -1,24 +1,26 @@
 
-NAME	:=	animal
+NAME	:=	character
 
 SRCS	:=	AMateria.cpp \
 			Cure.cpp \
 			Ice.cpp \
+			Character.cpp \
+			main.cpp \
 
 
 OBJS	:=	$(SRCS:.cpp=.o)
 
 CC		:=	c++
 
-CFLAGS	:=	-Wall -Werror -Wextra
+CFLAGS	:=	-Wall -Werror -Wextra -g
 
 STD		:=	-std=c++98
 
 INC		:=	AMateria.hpp \
-			Character.hpp \
 			Cure.hpp \
 			Ice.hpp \
 			ICharacter.hpp \
+			Character.hpp \
 			IMateriaSource.hpp \
 			MateriaSource.hpp \
 

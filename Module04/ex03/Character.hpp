@@ -2,8 +2,9 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-# include "ICharacter.hpp"
+# include "Character.hpp"
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 # include <string>
 
 class Character : public ICharacter
@@ -25,7 +26,11 @@ class Character : public ICharacter
 
 		std::string				_name;
 		static const int		_numberOfSlots;
+		static const int		_droppedItemsMax;
 		AMateria				**_slots;
+		AMateria				**_dropped;
+		int						_equipedSlots;
+		int						_droppedItems;
 };
 
 #endif

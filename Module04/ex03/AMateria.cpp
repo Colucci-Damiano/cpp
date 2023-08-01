@@ -1,7 +1,8 @@
 
 #include "AMateria.hpp"
-#include <iostream>
+#include "ICharacter.hpp"
 #include <string>
+#include <iostream>
 
 // Default constructor
 

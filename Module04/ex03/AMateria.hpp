@@ -1,9 +1,11 @@
 
 #ifndef	AMATERIA_HPP
-# define AMATEIRA_HPP
+# define AMATERIA_HPP
 
 # include "ICharacter.hpp"
 # include <string>
+
+class ICharacter;
 
 // Abstract class AMateria
 
@@ -13,7 +15,7 @@ class AMateria
 
 		AMateria();
 		AMateria( const std::string &type );
-		~AMateria();
+		virtual ~AMateria();
 
 		const std::string	&getType( void ) const;
 
