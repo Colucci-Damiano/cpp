@@ -18,7 +18,8 @@ class MateriaSource : public IMateriaSource
 	
 	private:
 
-		AMateria	*_slots[4];
+		AMateria			**_slots;
+		static const int	_slotsMax;
 };
 
 #endif

@@ -144,8 +144,11 @@ void				Character::unequip( int idx )
 		return ;
 	if ( idx < 0 || idx >= _numberOfSlots)
 		return ;
+	this->_dropped[_droppedItems] = this->_slots[idx];
+	this->_dropped++;
+	this->_slots[idx] = NULL;
 }
-
+ 
 void				Character::use( int idx, ICharacter &target )
 {
 	if ( idx < 0 || idx >= _numberOfSlots)
