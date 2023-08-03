@@ -5,6 +5,7 @@
 class Fixed
 {
 	public:
+
 		Fixed();
 		~Fixed();
 		Fixed(const Fixed &fixed);
@@ -14,6 +15,7 @@ class Fixed
 		void	setRawBits( int const raw );
 	
 	private:
+
 		int					_fixedValue;
 		static const int	_fractBits;
 };

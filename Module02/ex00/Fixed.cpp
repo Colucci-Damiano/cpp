@@ -2,16 +2,22 @@
 #include "Fixed.hpp"
 #include <iostream>
 
+// Default constructor
+
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
 	this->setRawBits(0);
 }
 
+// Destruuctor
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
 }
+
+// Copy constructor
 
 Fixed::Fixed( const Fixed &fixed )
 {
@@ -19,6 +25,8 @@ Fixed::Fixed( const Fixed &fixed )
 	if (this != &fixed)
 		*this = fixed;
 }
+
+// Copy assignment operator
 
 Fixed & Fixed::operator = ( const Fixed &fixed )
 {

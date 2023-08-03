@@ -11,11 +11,11 @@ void printBits(unsigned int num) {
     std::cout << std::endl;
 }
 
-//Initialization of non-member attributes
+// Initialization of non-member attributes
 
 const int	Fixed::_fractBits = 8;
 
-//Constructors
+// Constructors
 
 Fixed::Fixed( void )
 {
@@ -46,9 +46,9 @@ Fixed::Fixed( const float raw )
 	this->setRawBits( ( int ) result );
 }
 
-//Operator overloads
+// Operator overloads
 
-Fixed	&Fixed::operator= ( const Fixed &fixed )
+Fixed	&Fixed::operator=( const Fixed &fixed )
 {
 	if (this != &fixed)
 	{
@@ -150,7 +150,7 @@ Fixed	Fixed::operator++( int )
 {
 	Fixed	cpy(*this);
 	
-	this->setRawBits(getRawBits() + 1);
+	this->setRawBits(this->getRawBits() + 1);
 	return (cpy);
 }
 
@@ -198,7 +198,7 @@ int		Fixed::toInt( void ) const
 	return ( result );
 }
 
-//Public non-member functions
+// Public non-member functions (or static member function)
 
 Fixed	&Fixed::min(Fixed &f1, Fixed &f2)
 {
@@ -228,7 +228,7 @@ const Fixed	&Fixed::max(const Fixed &f1, const Fixed &f2)
 	return (f2);
 }
 
-//Global functions
+// Global functions
 
 std::ostream	&operator<<( std::ostream &os, Fixed const &fixed )
 {

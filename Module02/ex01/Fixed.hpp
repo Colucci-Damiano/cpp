@@ -7,6 +7,7 @@
 class Fixed
 {
 	public:
+
 		Fixed();
 		~Fixed();
 		Fixed( const Fixed & );
@@ -20,6 +21,7 @@ class Fixed
 		int		toInt( void ) const;
 
 	private:
+
 		int					_fixedValue;
 		static const int	_fractBits;
 };
