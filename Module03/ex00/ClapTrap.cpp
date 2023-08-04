@@ -32,8 +32,7 @@ ClapTrap::ClapTrap( const ClapTrap &trap )
 	{
 		*this = trap;
 	}
-	std::cout	<< "Copy constructor called for ClapTrap "
-				<< this->_name << std::endl;
+	std::cout << "Copy constructor called for ClapTrap " << this->_name << std::endl;
 }
 
 // Copy assignment operator

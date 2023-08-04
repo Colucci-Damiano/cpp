@@ -24,6 +24,7 @@ Cure	&Cure::operator=( const Cure &cure )
 {
 	if (this != &cure)
 	{
+		this->_type = cure._type;
 	}
 	return (*this);
 }
@@ -37,7 +38,7 @@ Cure::~Cure()
 
 AMateria	*Cure::clone( void ) const
 {
-	return (new Cure ());
+	return (new Cure ( *this ));
 }
 
 void	Cure::use( ICharacter &target )

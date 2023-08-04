@@ -13,15 +13,16 @@ Brain::Brain()
 
 Brain::Brain( const Brain &brain )
 {
+	std::cout << "Copy constructor called for class Brain" << std::endl;
 	if (this != &brain)
 		*this = brain;
-	std::cout << "Copy constructor called for class Brain" << std::endl;
 }
 
 // Copy assignment operator
 
 Brain	&Brain::operator=( const Brain &brain )
 {
+	std::cout << "Copy assignment operator called for class Brain" << std::endl;
 	if (this != &brain)
 	{
 		for (int i = 0; i < 100; i++)
@@ -29,7 +30,6 @@ Brain	&Brain::operator=( const Brain &brain )
 			this->_ideas[i] = brain._ideas[i];
 		}
 	}
-	std::cout << "Copy assignment operator called for class Brain" << std::endl;
 	return (*this);
 }
 

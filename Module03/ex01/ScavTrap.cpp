@@ -35,7 +35,7 @@ ScavTrap::~ScavTrap()
 
 // Copy constructor
 
-ScavTrap::ScavTrap( const ScavTrap &scav )
+ScavTrap::ScavTrap( const ScavTrap &scav ) : ClapTrap()
 {
 	if (this != &scav)
 	{

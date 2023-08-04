@@ -8,4 +8,5 @@ int	main()
 	FragTrap	damiano("damiano");
 
 	damiano.highFivesGuys();
+	damiano.attack("dip");
 }

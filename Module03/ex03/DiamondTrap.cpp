@@ -64,7 +64,6 @@ DiamondTrap::~DiamondTrap()
 
 void	DiamondTrap::printStats( void ) const
 {
-	std::cout << "oRIGINAL frag attack : " << FragTrap::_attackDamage << std::endl;
 	std::cout << "\033[32m";
 	std::cout << "Name : " << this->_name << std::endl;
 	std::cout << "HitPoints : " << this->_hitPoints << std::endl;

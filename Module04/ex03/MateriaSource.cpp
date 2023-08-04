@@ -61,7 +61,7 @@ MateriaSource::~MateriaSource()
 		}
 	}
 	delete [] (_slots);
-	std::cout << "Default constructor called by MateriaSource" << std::endl;
+	std::cout << "Destructor called by MateriaSource" << std::endl;
 }
 
 void		MateriaSource::learnMateria( AMateria *m )
@@ -74,6 +74,7 @@ void		MateriaSource::learnMateria( AMateria *m )
 			break ;
 		}
 	}
+	delete (m);
 }
 
 AMateria	*MateriaSource::createMateria( const std::string &type )

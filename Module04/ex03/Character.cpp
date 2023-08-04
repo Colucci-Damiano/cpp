@@ -132,7 +132,7 @@ void				Character::equip( AMateria *m )
 	{
 		if (_slots[i] == NULL)
 		{
-			_slots[i] = m->clone();
+			_slots[i] = m;
 			break ;
 		}
 	}
