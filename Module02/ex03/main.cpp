@@ -9,7 +9,7 @@ int	main()
 	Point	const b(-1, 6);
 	Point	const c(-3, 2);
 
-	Point	const p(0.0f , 1.5f);
+	Point	const p(4.0f , 1.0f);
 
 	if (!bsp(a, b, c, p))
 		std::cout << "The point is outside the triangle" << std::endl;

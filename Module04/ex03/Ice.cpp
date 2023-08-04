@@ -14,6 +14,7 @@ Ice::Ice() : AMateria()
 
 Ice::Ice( const Ice &ice )
 {
+	std::cout << "Copy constructor called by Ice" << std::endl;
 	if (this != &ice)
 		*this = ice;
 }
@@ -37,7 +38,7 @@ Ice::~Ice()
 
 AMateria	*Ice::clone( void ) const
 {
-	return (new Ice( *this ));
+	return (new Ice());
 }
 
 void	Ice::use( ICharacter &target )

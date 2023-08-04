@@ -126,7 +126,7 @@ const std::string	&Character::getName( void ) const
 
 void				Character::equip( AMateria *m )
 {
-	if (this->_equipedSlots >= Character::_numberOfSlots)
+	if (this->_equipedSlots >= Character::_numberOfSlots || !m)
 		return ;
 	for( int i = 0; i < _numberOfSlots; i++)
 	{
@@ -153,5 +153,6 @@ void				Character::use( int idx, ICharacter &target )
 {
 	if ( idx < 0 || idx >= _numberOfSlots)
 		return ;
-	this->_slots[idx]->use(target);
+	if (this->_slots[idx])
+		this->_slots[idx]->use(target);
 }

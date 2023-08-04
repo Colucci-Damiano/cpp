@@ -60,7 +60,7 @@ MateriaSource::~MateriaSource()
 			this->_slots[i] = NULL;
 		}
 	}
-	delete (_slots);
+	delete [] (_slots);
 	std::cout << "Default constructor called by MateriaSource" << std::endl;
 }
 

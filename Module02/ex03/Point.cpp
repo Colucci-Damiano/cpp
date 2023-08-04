@@ -44,7 +44,7 @@ Fixed const		Point::getY( void ) const
 
 bool	Point::operator==( const Point &point ) const
 {
-	if (this->getX() == point.getX() && this->getY() == this->getY())
+	if (this->getX() == point.getX() && this->getY() == point.getY())
 		return (true);
 	return(false);
 }

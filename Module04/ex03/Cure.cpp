@@ -12,7 +12,7 @@ Cure::Cure() : AMateria()
 
 // Copy constructor
 
-Cure::Cure( const Cure &cure )
+Cure::Cure( const Cure &cure ) : AMateria( cure )
 {
 	if (this != &cure)
 		*this = cure;
@@ -37,7 +37,7 @@ Cure::~Cure()
 
 AMateria	*Cure::clone( void ) const
 {
-	return (new Cure( *this ));
+	return (new Cure ());
 }
 
 void	Cure::use( ICharacter &target )
