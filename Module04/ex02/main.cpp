@@ -7,13 +7,16 @@
 
 int	main( void )
 {
-	AAnimal	*animal;
-	AAnimal	*nuvo;
-	animal = new Dog();
-	nuvo = new Cat();
-	animal->makeSound();
-	std::cout << animal->getType() << std::endl;
-	nuvo->makeSound();
-	delete (animal);
-	delete (nuvo);
+	AAnimal	*dog;
+	AAnimal	*cat;
+
+	dog = new Dog();
+	cat = new Cat();
+	dog->makeSound();
+	std::cout << dog->getType() << std::endl;
+	cat->makeSound();
+	std::cout << cat->getType() << std::endl;
+
+	delete (dog);
+	delete (cat);
 }
