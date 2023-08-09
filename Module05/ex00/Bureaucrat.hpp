@@ -3,6 +3,15 @@
 
 #include <string>
 
+class GradeTooLowException : public std::exception
+{
+	//virtual const char	*what() const noexcept;
+};
+class GradeTooHighException : public std::exception
+{	
+	//virtual const char	*what() const noexcept;
+};
+
 class Bureaucrat
 {
 	public:
@@ -18,20 +27,14 @@ class Bureaucrat
 
 		void		incrementGrade( void );
 		void		decrementGrade( void );
-
-		class GradeTooLowException : public std::exception
-		{
-			virtual const char	*what() const noexcept;
-		};
-		class GradeTooHighException : public std::exception
-		{
-			virtual const char	*what() const noexcept;
-		};
+		
 
 	private:
 
-		const std::string	_name;
-		int					_grade;
+		const std::string		_name;
+		int						_grade;
+		GradeTooHighException	_tooHighException;
+		GradeTooLowException	_tooLowException;
 
 };
 

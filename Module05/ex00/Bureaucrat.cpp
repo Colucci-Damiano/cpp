@@ -8,8 +8,10 @@ Bureaucrat::Bureaucrat() : _name("<DefaultName>"), _grade(150)
 
 Bureaucrat::Bureaucrat( const std::string &name, const int grade ) : _name(name), _grade(grade)
 {
-	if (grade < 1 || grade > 150)
-		throw "Invalid grade range";
+	if (grade < 1)
+		throw Bureaucrat::_tooHighException;
+	else if (grade > 150)
+		throw Bureaucrat::_tooLowException;
 }
 
 Bureaucrat::~Bureaucrat(){}
@@ -42,14 +44,14 @@ void		Bureaucrat::incrementGrade( void )
 {
 	//throws exception
 	if (this->_grade == 1)	
-		throw "Maximum grade exception!";
-	this->_grade++;
+		throw Bureaucrat::_tooHighException;
+	this->_grade--;
 }
 
 void		Bureaucrat::decrementGrade( void )
 {
 	//throws exception
 	if (this->_grade == 150)
-		throw "Minimum grade exception";
-	this->_grade--;
+		throw Bureaucrat::_tooLowException;
+	this->_grade++;
 }

@@ -1,5 +1,5 @@
 
-NAME	:=
+NAME	:= bureaucrat
 
 SRCS	:=	Bureaucrat.cpp \
 			main.cpp \
@@ -19,7 +19,7 @@ RM		:= rm -rf
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ $(CC) $(CFLAGS) $(STD) -o $(NAME)
+	@ $(CC) $(CFLAGS) $(STD) $(OBJS) -o $(NAME)
 
 %.o : %.cpp $(INC)
 	@ $(CC) $(CFLAGS) $(STD) -c -o $@ $<
