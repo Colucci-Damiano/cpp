@@ -2,6 +2,7 @@
 #include "Bureaucrat.hpp"
 #include <string>
 #include <iostream>
+#include <ostream>
 
 int	main( void )
 {
@@ -33,6 +34,20 @@ int	main( void )
 		std::cout << "Default exception thrown";
 	}
 	
+	try
+	{
+		Bureaucrat	gigio("gigio", 80);
+		std::cout << gigio << std::endl;
+	}
+	catch ( std::exception &e )
+	{
+		std::cout << "Exception thrown : " << e.what() << std::endl;
+	}
+	catch (...)
+	{
+		std::cout << "Default exception thrown" << std::endl;
+	}
+
 	std::cout << "Fine" << std::endl;
 
 	return (0);

@@ -2,15 +2,9 @@
 #pragma once
 
 #include <string>
+#include <ostream>
 
-class GradeTooLowException : public std::exception
-{
-	//virtual const char	*what() const noexcept;
-};
-class GradeTooHighException : public std::exception
-{	
-	//virtual const char	*what() const noexcept;
-};
+
 
 class Bureaucrat
 {
@@ -27,15 +21,38 @@ class Bureaucrat
 
 		void		incrementGrade( void );
 		void		decrementGrade( void );
-		
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				GradeTooLowException();
+				GradeTooLowException( std::string const & );
+				virtual ~GradeTooLowException() throw();
+
+				char const*	what( void ) const throw();
+			private:
+				std::string	_msg;
+		};
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				GradeTooHighException();
+				GradeTooHighException( std::string const & );
+				virtual ~GradeTooHighException() throw();
+
+				char const*	what( void ) const throw();
+			private:
+				std::string	_msg;
+		};
 
 	private:
 
 		const std::string		_name;
 		int						_grade;
-		GradeTooHighException	_tooHighException;
-		GradeTooLowException	_tooLowException;
+		
 
 };
 
-// operator overload <<
+// operator << overload
+
+std::ostream	&operator<<( std::ostream &os, const Bureaucrat &bur);
