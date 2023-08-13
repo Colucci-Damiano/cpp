@@ -2,13 +2,17 @@
 NAME	:= bureaucrat
 
 SRCS	:=	Bureaucrat.cpp \
-			Form.cpp \
+			AForm.cpp \
+			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp \
 			main.cpp \
 
 OBJS	:= $(SRCS:.cpp=.o)
 
 INC		:=	Bureaucrat.hpp \
-			Form.hpp \
+			AForm.hpp \
+			ShrubberyCreationForm.hpp \
 
 CC		:= c++
 

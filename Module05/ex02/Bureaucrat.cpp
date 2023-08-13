@@ -1,6 +1,5 @@
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 #include <iostream>
 #include <ostream>
 
@@ -81,10 +80,6 @@ Bureaucrat	&Bureaucrat::operator=( const Bureaucrat &bur )
 	return (*this);
 }
 
-//Destructor
-
-Bureaucrat::~Bureaucrat(){}
-
 std::string	Bureaucrat::getName( void ) const
 {
 	return (this->_name);
@@ -109,12 +104,31 @@ void		Bureaucrat::decrementGrade( void )
 	this->_grade++;
 }
 
+void		Bureaucrat::signForm( AForm &form ) const
+{
+	if (form.getIsSigned())
+	{
+		std::cout << *this << " couldn't sign " << form << " because it is already signed." << std::endl;
+	}
+	else if (form.getGradeSign() < this->getGrade())
+	{
+		std::cout << *this << " couldn't sign " << form << " because he has not the required grade." << std::endl;
+	}
+	else
+	{
+		std::cout << *this << " signed " << form << std::endl;
+	}
+	form.beSigned( *this );
+}
+
 //*********************************************************************************//
 //                            << operator overload                                 //
 //*********************************************************************************//
 
 std::ostream	&operator<<( std::ostream &os, const Bureaucrat &bur)
 {
+	os << "\033[32m";
 	os << bur.getName() << ", bureaucrat grade " << bur.getGrade() << ".";
+	os << "\033[0m";
 	return (os);
 }
