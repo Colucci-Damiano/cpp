@@ -1,0 +1,60 @@
+
+/*
+	Conversion -- > cast.
+	Transform bits of a data type to another one.
+*/
+
+/*
+	Identity conversion.
+	Reinterpretation-->UpCast and DownCast
+*/
+
+/*
+	There are five casts in c++ : Implicit, Static, Dynamic, Reinterpret, Const (and the C cast).
+*/
+
+
+
+/*
+	Dynamic cast : cast at runtime, not during compilation like static cast.
+	I have to handle properly error in dynamic cast.
+
+	Syntax : "dynamic_casy<type>(parameter)"
+
+	It can be done between pointers and references.
+
+	When done between pointers i have to check that the left pointer of assignment operator is NULL after the cast. If it is NULL, i have an error cast : cast IMPOSSIBLE.
+
+	We can check wit try-catch block with std::bad_cast
+
+	Use of dynamic cast :
+		-For not crashing and handle cast when i implement plugin and extrenal libraries
+*/
+
+/*
+	Reinterpret cast
+
+	Syntax : "reinterpret_cast<type>(paramenter)"
+
+	It will not check for semantic errors. The compiler trusts the code. Risky
+*/
+
+/*
+	Const cast : trasformation of type qualifier; used on pointers and references
+
+	Syntax : "const_cast<type>(parameter)"
+
+	I can change const types to non const types
+	When using this cast it means that code is not built properly
+*/
+
+/*
+	Cast operator
+
+	Syntax : operator type() { // code }
+*/
+
+/*
+	'explicit' keyword.
+
+*/
