@@ -1,11 +1,11 @@
 
-NAME	:=	easyFind
+NAME	:=	
 
 SRCS	:=	main.cpp \
 
 OBJS	:= $(SRCS:.cpp=.o)
 
-INC		:=	easyfind.hpp \
+INC		:=	 \
 
 CC		:=	c++
 CFLAGS	:=	-Wall -Werror -Wextra

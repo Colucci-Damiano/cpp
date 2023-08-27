@@ -1,11 +1,12 @@
 
-NAME	:=	easyFind
+NAME	:=	span
 
 SRCS	:=	main.cpp \
+			Span.cpp
 
 OBJS	:= $(SRCS:.cpp=.o)
 
-INC		:=	 \
+INC		:=	Span.hpp \
 
 CC		:=	c++
 CFLAGS	:=	-Wall -Werror -Wextra
@@ -14,7 +15,7 @@ STD		:=	-std=c++98
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(STD) $< -o $@
+	$(CC) $(CFLAGS) $(STD) $(OBJS) -o $@
 
 %.o: %.cpp $(INC)
 	$(CC) $(CFLAGS) $(STD) -c $<
