@@ -2,6 +2,7 @@
 #include "Span.hpp"
 
 #include <algorithm>
+#include <limits>
 
 //*********************************************************************************//
 //                            Span class canonical form                            //
@@ -76,8 +77,21 @@ int				Span::shortestSpan( void ) const
 {
 	if (this->getCurrentSize() <= 1)
 		throw (Span::NoSpanException("NoSpanException"));
-	//Finish
-	return (0);	
+
+	int								minSpan = std::numeric_limits<int>::max();
+	std::vector<int>				cpy(this->_vectorInt);
+
+	std::sort(cpy.begin(), cpy.end());
+
+	std::vector<int>::iterator		it = cpy.begin();
+	std::vector<int>::iterator		end = cpy.end();
+	do
+	{
+		minSpan = std::min(minSpan, *(it + 1) - *it);
+		it++;
+	}
+	while (it + 1 != end);
+	return (minSpan);	
 }
 
 int				Span::longestSpan( void ) const
