@@ -1,11 +1,11 @@
 
-NAME	:=	
+NAME	:=	mutantStack
 
 SRCS	:=	main.cpp \
 
 OBJS	:= $(SRCS:.cpp=.o)
 
-INC		:=	 \
+INC		:=	MutantStack.hpp \
 
 CC		:=	c++
 CFLAGS	:=	-Wall -Werror -Wextra
