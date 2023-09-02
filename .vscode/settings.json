@@ -50,6 +50,8 @@
 		"streambuf": "cpp",
 		"typeinfo": "cpp",
 		"iomanip": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"optional": "cpp",
+		"ranges": "cpp"
 	}
 }
