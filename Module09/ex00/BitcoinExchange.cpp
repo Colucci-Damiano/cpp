@@ -16,9 +16,9 @@ BitcoinExchange::BitcoinExchange(BitcoinExchange const & other)
 		*this = other;
 }
 
-BitcoinExchange::BitcoinExchange( std::string const & file )
+BitcoinExchange::BitcoinExchange( std::string const & fileData )
 {
-	fillData( file );
+	fillData( fileData );
 }
 
 BitcoinExchange&	BitcoinExchange::operator=(BitcoinExchange const & other)

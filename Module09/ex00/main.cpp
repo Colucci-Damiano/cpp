@@ -10,7 +10,16 @@ int	main( int ac, char **av )
 		return (1);
 	}
 
-	BitcoinExchange		data(av[1]);
+	try
+	{
+		BitcoinExchange		data("data.csv");
+
+		data.showResults(av[1]);
+	}
+	catch(BitcoinExchange::InputFileException & e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
 
 
 	return (0);

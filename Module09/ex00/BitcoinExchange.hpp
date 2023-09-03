@@ -9,7 +9,7 @@ class BitcoinExchange
 	public:
 		BitcoinExchange();
 		BitcoinExchange( BitcoinExchange const & other );
-		BitcoinExchange( std::string const & file );
+		BitcoinExchange( std::string const & fileData );
 		~BitcoinExchange();
 		BitcoinExchange&	operator=( BitcoinExchange const & other );
 
