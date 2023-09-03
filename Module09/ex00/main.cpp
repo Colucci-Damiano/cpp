@@ -14,7 +14,22 @@ int	main( int ac, char **av )
 	{
 		BitcoinExchange		data("data.csv");
 
-		data.showResults(av[1]);
+		//data.showResults(av[1]);
+		int	year, month, day;
+		(void)av;
+		while (!std::cin.eof())
+		{
+			std::cout << "Enter year>>";
+			std::cin >> year;
+			std::cout << "Enter month>>";
+			std::cin >> month;
+			std::cout << "Enter day>>";
+			std::cin >> day;
+			if (BitcoinExchange::invalidDate(year, month, day))
+				std::cout << "Invalid date!" << std::endl;
+			else
+				std::cout << "Valid date!" << std::endl;
+		}
 	}
 	catch(BitcoinExchange::InputFileException & e)
 	{

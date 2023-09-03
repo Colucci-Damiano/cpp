@@ -22,11 +22,12 @@ class BitcoinExchange
 
 				char const*	what( void ) const throw();
 			private:
-				std::string	_msg;
+				std::string		_msg;
 		};
 
-		void	fillData(std::string const & dataFile);
-		void	showResults(std::string const & inputFile) const ;
+		void			fillData(std::string const & dataFile);
+		void			showResults(std::string const & inputFile) const ;
+		static bool		invalidDate( int year, int month, int day );
 	private:
 		std::map<time_t, float>		_database;
 };
