@@ -26,7 +26,8 @@ class BitcoinExchange
 		};
 
 		void			fillData(std::string const & dataFile);
-		void			showResults(std::string const & inputFile) const ;
+		void			showResults(std::string const & inputFile) const;
+		static time_t	parseDate( std::string const & s );
 		static bool		invalidDate( int year, int month, int day );
 	private:
 		std::map<time_t, float>		_database;

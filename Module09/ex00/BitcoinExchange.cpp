@@ -3,7 +3,9 @@
 
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <ctime>
+#include <cstdlib>
 
 //*********************************************************************************//
 //                               BitcoinExchange class                             //
@@ -56,18 +58,18 @@ void	BitcoinExchange::fillData( std::string const & dataFile )
 {
 	std::ifstream	file( dataFile.c_str() );
 	std::string		line;
-	float			exchangeRate;
-	int				year, month, day;
+	//float			exchangeRate;
+	//int				year, month, day;
 
 	if (file.fail())
-		throw (BitcoinExchange::InputFileException("Database file not found"));
+		throw (BitcoinExchange::InputFileException(dataFile + " file not found!"));
 	this->_database.clear();
+	// parse into map <date, float>
 	while (!file.eof())
 	{
-		std::getline(file, line);
+
 	}
 	file.close();
-	// parse into map <date, float>
 }
 
 void	BitcoinExchange::showResults( std::string const & inputFile ) const
@@ -83,7 +85,6 @@ void	BitcoinExchange::showResults( std::string const & inputFile ) const
 	while (!input.eof())
 	{
 		getline(input, line);
-
 	}
 
 
@@ -108,6 +109,43 @@ void	BitcoinExchange::showResults( std::string const & inputFile ) const
 //*********************************************************************************//
 //                        BitcoinExchange static functions                         //
 //*********************************************************************************//
+
+
+// Parse string date in format YYYY-MM-DD
+// Return date in time_t value, -1 in case of errors or wrong format
+// time_t seconds correspond to the begining of the day
+
+time_t	BitcoinExchange::parseDate( std::string const & s )
+{
+	size_t	length = s.length();
+	std::tm	timeStruct = {};
+	time_t	date;
+
+	std::cout << timeStruct.tm_gmtoff << std::endl;
+	std::cout << timeStruct.tm_hour << std::endl;
+	std::cout << timeStruct.tm_isdst << std::endl;
+	std::cout << timeStruct.tm_mday << std::endl;
+	std::cout << timeStruct.tm_min << std::endl;
+	std::cout << timeStruct.tm_mon << std::endl;
+	std::cout << timeStruct.tm_sec << std::endl;
+	std::cout << timeStruct.tm_wday << std::endl;
+	std::cout << timeStruct.tm_yday << std::endl;
+	std::cout << timeStruct.tm_year << std::endl;
+	std::cout << timeStruct.tm_zone << std::endl;
+	if (length != 10 || s[4] != '-' || s[7] != '-')
+		return (-1);
+	for( size_t i = 0; i < length; i++)
+	{
+		if (i != 4 && i != 7)
+			if (!std::isdigit(s[i]))
+				return (-1);
+	}
+	timeStruct.tm_year = std::atoi(s.substr(0, 4).c_str()) - 1900;
+	timeStruct.tm_mon = std::atoi(s.substr(5, 2).c_str()) - 1;
+	timeStruct.tm_mday = std::atoi(s.substr(7, 2).c_str());
+	date = std::mktime(&timeStruct);
+	return (date);
+}
 
 bool	BitcoinExchange::invalidDate(int year, int month, int day)
 {

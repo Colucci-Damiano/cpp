@@ -1,6 +1,7 @@
 
 #include "BitcoinExchange.hpp"
 #include <iostream>
+#include <ctime>
 
 int	main( int ac, char **av )
 {
@@ -13,22 +14,21 @@ int	main( int ac, char **av )
 	try
 	{
 		BitcoinExchange		data("data.csv");
+		std::string			line;
+		time_t				date;
 
 		//data.showResults(av[1]);
-		int	year, month, day;
+		//int	year, month, day;
 		(void)av;
-		while (!std::cin.eof())
+		while (!std::cin.fail())
 		{
-			std::cout << "Enter year>>";
-			std::cin >> year;
-			std::cout << "Enter month>>";
-			std::cin >> month;
-			std::cout << "Enter day>>";
-			std::cin >> day;
-			if (BitcoinExchange::invalidDate(year, month, day))
-				std::cout << "Invalid date!" << std::endl;
-			else
-				std::cout << "Valid date!" << std::endl;
+			std::cout << "Insert date in format YYYY-MM-DD: ";
+			std::cin >> line;
+			date = BitcoinExchange::parseDate(line);
+			std::cout << date << std::endl;
+			std::cout << std::localtime(&date)->tm_year + 1900 << std::endl;
+			std::cout << std::localtime(&date)->tm_mon + 1 << std::endl;
+			std::cout << std::localtime(&date)->tm_mday << std::endl;
 		}
 	}
 	catch(BitcoinExchange::InputFileException & e)
