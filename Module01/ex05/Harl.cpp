@@ -27,14 +27,14 @@ void	Harl::_error( void ) const
 	std::cout << "\033[91mThis is unacceptable! I want to speak to the manager now.\033[0m" << std::endl;
 }
 
-void	Harl::complain( std::string level ) const
+void	Harl::complain( std::string const & level ) const
 {
 	void	(Harl::*funct[4]) (void) const = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
 	int		levels[4] = {level.compare("DEBUG"), level.compare("INFO"), level.compare("WARNING"), level.compare("ERROR")};
+
 	for (size_t i = 0; i < 4; i++)
 	{
 		if (!levels[i])
 			(this->*funct[i])();
 	}
-	
 }

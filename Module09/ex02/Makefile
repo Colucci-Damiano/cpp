@@ -1,13 +1,13 @@
 
-NAME	:=	RPN
+NAME	:=	PmergeMe
 
 #Sources
 SRCS	:=	main.cpp \
-			RPN.cpp \
+			PmergeMe.cpp \
 
 OBJS	:=	$(SRCS:.cpp=.o)
 
-HEADERS	:=	 RPN.hpp \
+HEADERS	:=	PmergeMe.hpp \
 
 #Compiler
 CC		:=	c++

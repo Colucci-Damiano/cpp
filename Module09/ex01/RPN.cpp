@@ -43,26 +43,26 @@ int		RPN::operations(int a1, int a2, char token)
 void	RPN::reversePolishNotation( std::string const & s )
 {
 	int				a1, a2;
-	std::string		copy(s);
-	copy.erase(std::remove(copy.begin(), copy.end(), ' '), copy.end());
-	std::cout << copy << std::endl;
 	std::stack<int>	container;
-	size_t const	length = copy.length();
+	std::string		tokens("/*+-");
 
-	for( size_t i = 0; i < length; i++ )
+	std::string		copy(s);
+	size_t const	copyLength = copy.length();
+
+	for( size_t i = 0; i < copyLength; i++ )
 	{
 		if (std::isdigit(copy[i]))
 			container.push(std::atoi(copy.substr(i, 1).c_str()));
-		else if (container.size() >= 2)
+		else if (tokens.find(s[i]) != std::string::npos)
 		{
+			if (container.size() < 2)
+				throw (std::exception());
 			a2 = container.top();
 			container.pop();
 			a1 = container.top();
 			container.pop();
 			container.push(operations(a1, a2, s[i]));
 		}
-		else
-			throw (std::exception());
 	}
 	while (!container.empty())
 	{

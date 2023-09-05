@@ -10,7 +10,8 @@ class Harl
 		Harl();
 		~Harl();
 
-		void	complain( std::string level ) const;
+		void	complain( std::string const & level ) const;
+		void	complain( std::string const & level, int n ) const;
 
 	private:
 		void	_debug( void ) const;
