@@ -20,6 +20,7 @@ class	HumanA
 
 		std::string		_name;
 		Weapon			&_weapon;
+		const int		n;
 };
 
 #endif

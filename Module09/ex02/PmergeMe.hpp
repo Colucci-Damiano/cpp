@@ -1,6 +1,10 @@
 
 #pragma once
 
+#include <string>
+#include <vector>
+#include <deque>
+
 class PmergeMe
 {
 	public:
@@ -9,6 +13,16 @@ class PmergeMe
 		~PmergeMe();
 		PmergeMe&	operator=( PmergeMe const & other );
 
-		void	loadArgs(int ac, char **av);
+		void	loadArg( std::string const & );
+		void	vectorAlgorithm( int start, int end );
+		void	vectorMerge(int start, int q, int end);
+		void	vectorInsertion(int start, int end);
+		void	dequeAlgorithm( void );
+		void	printArgs( void ) const;
 	private:
+		std::vector<int>	_vector;
+		std::deque<int>		_deque;
+		static const int	_K;
 };
+
+bool	isNumber( std::string const & );
