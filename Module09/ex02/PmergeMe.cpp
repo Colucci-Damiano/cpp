@@ -6,6 +6,7 @@
 #include <exception>
 #include <iostream>
 #include <cstdlib>
+#include <array>
 
 PmergeMe::PmergeMe(){}
 
@@ -53,15 +54,14 @@ void	PmergeMe::vectorInsertion(int start, int end)
     }
 }
 
-/* void	PmergeMe::vectorMerge(int start, int q, int end)
-{
-	int n1 = q - start + 1;
-    int n2 = end - q;
+/* void	merge(int A[], int p, int q, int r) {
+    int n1 = q - p + 1;
+    int n2 = r - q;
     int[] LA = Arrays.copyOfRange(A, p, q +1);
     int[] RA = Arrays.copyOfRange(A, q+1, r +1);
     int RIDX = 0;
     int LIDX = 0;
-    for (int i = start; i < end - start + 1; i++) {
+    for (int i = p; i < r - p + 1; i++) {
         if (RIDX == n2) {
             A[i] = LA[LIDX];
             LIDX++;
