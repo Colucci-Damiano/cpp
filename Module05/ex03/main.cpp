@@ -11,7 +11,7 @@
 
 int	main( void )
 {
-
+	//TEST1
 	try
 	{
 		Intern		someRandomIntern;
@@ -29,6 +29,7 @@ int	main( void )
 		std::cout << "Exception : " << e.what() << std::endl;
 	}
 
+	//TEST2
 	try
 	{
 		AForm		*newForm;

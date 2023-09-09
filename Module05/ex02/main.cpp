@@ -10,6 +10,9 @@ int	main( void )
 {
 	try
 	{
+		std::cout << std::endl;
+		std::cout << "[TEST1]" << std::endl;
+		std::cout << std::endl;
 		Bureaucrat				morganFreeman("Morgan Freeman", 1);
 		ShrubberyCreationForm	shForm("homeMorgan");
 		morganFreeman.signForm( shForm );
@@ -23,6 +26,9 @@ int	main( void )
 	
 	try
 	{
+		std::cout << std::endl;
+		std::cout << "[TEST2]" << std::endl;
+		std::cout << std::endl;
 		Bureaucrat				noob("MR noob", 20);
 		ShrubberyCreationForm	shForm("noobTrees");
 
@@ -37,6 +43,9 @@ int	main( void )
 
 	try
 	{
+		std::cout << std::endl;
+		std::cout << "[TEST3]" << std::endl;
+		std::cout << std::endl;
 		Bureaucrat		gio("gio", 2);
 
 		ShrubberyCreationForm		shForm("gio trees");

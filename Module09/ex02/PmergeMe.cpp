@@ -6,6 +6,7 @@
 #include <exception>
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 #include <array>
 
 PmergeMe::PmergeMe(){}
@@ -28,6 +29,16 @@ PmergeMe&	PmergeMe::operator=( PmergeMe const & other )
 }
 
 const int PmergeMe::_K = 5;
+
+std::vector<int>&	PmergeMe::getVector( void )
+{
+	return(this->_vector);
+}
+
+std::deque<int>&	PmergeMe::getDeque(void)
+{
+	return (this->_deque);
+}
 
 void	PmergeMe::loadArg( std::string const & number )
 {
@@ -54,7 +65,7 @@ void	PmergeMe::vectorInsertion(int start, int end)
     }
 }
 
-/* void	merge(int A[], int p, int q, int r) {
+void	merge(int A[], int p, int q, int r){
     int n1 = q - p + 1;
     int n2 = r - q;
     int[] LA = Arrays.copyOfRange(A, p, q +1);
@@ -65,18 +76,18 @@ void	PmergeMe::vectorInsertion(int start, int end)
         if (RIDX == n2) {
             A[i] = LA[LIDX];
             LIDX++;
-        } else if (LIDX == n1) {
+		} else if (LIDX == n1) {
             A[i] = RA[RIDX];
             RIDX++;
-        } else if (RA[RIDX] > LA[LIDX]) {
+		} else if (RA[RIDX] > LA[LIDX]) {
             A[i] = LA[LIDX];
             LIDX++;
-        } else {
+		} else {
             A[i] = RA[RIDX];
             RIDX++;
-        }
-    }
-} */
+		}
+	}
+}
 
 void	PmergeMe::vectorAlgorithm(int start, int end)
 {

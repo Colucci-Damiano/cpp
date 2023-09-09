@@ -12,7 +12,7 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 
 void		RobotomyRequestForm::execute( Bureaucrat const & executor ) const
 {
-	AForm::execute( executor );
+	AForm::checkForm( executor );
 	std::cout << "* SOME DRILLING NOISES *" << std::endl;
 	std::cout << "* SOME DRILLING NOISES *" << std::endl;
 	std::cout << "* SOME DRILLING NOISES *" << std::endl;

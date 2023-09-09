@@ -22,13 +22,19 @@ Intern::Intern()
 //Copy Constructor
 Intern::Intern( Intern const & other )
 {
-	( void )other;
+	(void)other;
+	this->_generateForm[0] = &ShrubberyCreationForm::generate;
+	this->_generateForm[1] = &PresidentialPardonForm::generate;
+	this->_generateForm[2] = &RobotomyRequestForm::generate;
+	this->_nameForm[0] = "shrubbery creation";
+	this->_nameForm[1] = "presidential pardon";
+	this->_nameForm[2] = "robotomy request";
 }
 
 //Copy assignment operator overload
 Intern&	Intern::operator=( Intern const & other )
 {
-	( void )other;
+	(void)other;
 	return ( *this );
 }
 
@@ -62,7 +68,7 @@ AForm*	Intern::makeForm( std::string const & name, std::string const & target ) 
 		if (parse.compare(_nameForm[i]) == 0)
 		{
 			newForm = _generateForm[i]( target );
-			std::cout << "Intern creates " << *newForm;
+			std::cout << "Intern creates " << *newForm << std::endl;
 			return (newForm);
 		}
 	}

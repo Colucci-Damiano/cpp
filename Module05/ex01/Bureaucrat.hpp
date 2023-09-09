@@ -57,4 +57,4 @@ class Bureaucrat
 
 // operator << overload
 
-std::ostream	&operator<<( std::ostream &os, const Bureaucrat &bur);
+std::ostream	&operator<<( std::ostream & os, const Bureaucrat & bur);

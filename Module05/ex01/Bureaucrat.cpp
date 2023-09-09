@@ -64,7 +64,7 @@ Bureaucrat::~Bureaucrat(){}
 
 //Copy constructor
 
-Bureaucrat::Bureaucrat( const Bureaucrat &bur )
+Bureaucrat::Bureaucrat( const Bureaucrat &bur ) : _name(bur._name)
 {
 	*this = bur;
 }
@@ -104,7 +104,7 @@ void		Bureaucrat::decrementGrade( void )
 	this->_grade++;
 }
 
-void		Bureaucrat::signForm( Form &form ) const
+void		Bureaucrat::signForm( Form & form ) const
 {
 	if (form.getIsSigned())
 	{

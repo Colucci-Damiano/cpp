@@ -1,6 +1,5 @@
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 #include <iostream>
 #include <ostream>
 
@@ -59,10 +58,6 @@ Bureaucrat::Bureaucrat( const std::string &name, const int grade ) : _name(name)
 		throw Bureaucrat::GradeTooLowException("Grade too low");
 }
 
-//Destructor
-
-Bureaucrat::~Bureaucrat(){}
-
 //Copy constructor
 
 Bureaucrat::Bureaucrat( const Bureaucrat &bur )
@@ -104,7 +99,7 @@ void		Bureaucrat::incrementGrade( void )
 
 void		Bureaucrat::decrementGrade( void )
 {
-	if (this->_grade == 150)
+	if (this->_grade >= 150)
 		throw Bureaucrat::GradeTooLowException("Decrement of minimum grade");
 	this->_grade++;
 }

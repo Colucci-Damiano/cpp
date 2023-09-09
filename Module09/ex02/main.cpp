@@ -13,7 +13,7 @@ int	main(int ac, char **av)
 		{
 			merge.loadArg(av[i]);
 		}
-		merge.vectorAlgorithm();
+		merge.vectorAlgorithm(0, merge.getVector().size() - 1);
 		merge.dequeAlgorithm();
 		merge.printArgs();
 	}

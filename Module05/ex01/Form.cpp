@@ -27,7 +27,7 @@ Form::Form(std::string const &name, int const gradeSign, int const gradeExe )
 
 // Copy constructor
 
-Form::Form( Form const &form ) : _name( form._name), _isSigned(form._isSigned), \
+Form::Form( Form const & form ) : _name( form._name), _isSigned(form._isSigned), \
 _gradeSign( form._gradeSign), _gradeExe(form._gradeExe)
 {
 
@@ -39,7 +39,6 @@ Form&	Form::operator=( Form const &form )
 {
 	if (this != &form)
 	{
-
 	}
 	return ( *this );
 }

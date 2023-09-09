@@ -13,6 +13,9 @@ class PmergeMe
 		~PmergeMe();
 		PmergeMe&	operator=( PmergeMe const & other );
 
+		std::vector<int>&	getVector(void);
+		std::deque<int>&	getDeque(void);
+
 		void	loadArg( std::string const & );
 		void	vectorAlgorithm( int start, int end );
 		void	vectorMerge(int start, int q, int end);

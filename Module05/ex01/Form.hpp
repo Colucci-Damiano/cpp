@@ -43,7 +43,9 @@ class	Form
 			private:
 				std::string	_msg;
 		};
+
 		void			beSigned( Bureaucrat const &bur ) throw(Form::GradeTooLowException);
+
 	private:
 		std::string const	_name;
 		bool				_isSigned;
@@ -52,4 +54,4 @@ class	Form
 
 };
 
-std::ostream&	operator<<( std::ostream& os, Form const &form );
+std::ostream&	operator<<( std::ostream & os, Form const & form );

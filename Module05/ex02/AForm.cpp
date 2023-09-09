@@ -108,7 +108,7 @@ const char*		AForm::FormNotSignedException::what( void ) const throw()
 	return ( this->_msg.c_str() );
 }
 
-void	AForm::execute( Bureaucrat const & executor ) const 
+void	AForm::checkForm( Bureaucrat const & executor ) const 
 {
 	if (this->getIsSigned() == false)
 		throw ( FormNotSignedException("Form not signed"));

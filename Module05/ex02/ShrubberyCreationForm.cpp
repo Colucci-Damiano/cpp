@@ -15,7 +15,7 @@ void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 {
 	try
 	{
-		AForm::execute( executor );
+		AForm::checkForm( executor );
 		std::ofstream	ofs((this->_target + "_shrubbery").c_str());
 
 		ofs << "                                              .    \n\
