@@ -10,23 +10,27 @@ class	Array
 	public:
 		Array() : _size(0), _array(NULL) {}
 
-		Array( unsigned int const n ) : _size(static_cast<size_t>(n)), _array(new T[n]) {}
+		Array( unsigned int const n ) : _size(static_cast<size_t>(n)), _array(new T[n]())
+		{
+		}
 
-		Array( Array<T> const & other )
+		Array( Array<T> const & other ) : _size(0), _array(NULL)
 		{
 			if (this != &other)
 				*this = other;
 		}
 		virtual ~Array()
 		{
-			delete [] (this->_array);
+			if (this->_array)
+				delete [] (this->_array);
 		} 
 
 		Array<T>&	operator=( Array<T> const & other)
 		{
 			if  (this != &other)
 			{
-				delete [] (this->_array);
+				if (this->_array)
+					delete [] (this->_array);
 				this->_array = new T[other.size()];
 				for(size_t i = 0; i < other.size(); i++)
 				{
@@ -39,7 +43,7 @@ class	Array
 		T&	operator[]( int index )
 		{
 			if (index >= static_cast<int>(this->size()) || index < 0)
-				throw(std::exception());
+				throw(std::runtime_error("Out of index"));
 			return (_array[index]);
 		}
 

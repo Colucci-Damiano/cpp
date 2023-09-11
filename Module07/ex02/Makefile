@@ -6,7 +6,6 @@ SRCS	:=	main.cpp \
 OBJS	:=	$(SRCS:.cpp=.o)
 
 INC		:=	Array.hpp \
-			Array.tpp \
 
 CC		:= c++
 CFLAGS	:= -Wall -Werror -Wextra -g

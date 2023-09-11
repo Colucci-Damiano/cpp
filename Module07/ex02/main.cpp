@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "Array.tpp"
+#include "Array.hpp"
 
 #define N1 15
 #define N2 20
@@ -26,7 +26,7 @@ int	main()
 	}
 
 	//Testing constructor with unsigned int
-
+	std::cout << "Testing constructor with unsigned int" << std::endl;
 	std::cout << "After construtor f(N1)" << std::endl;
 	try
 	{
@@ -43,8 +43,8 @@ int	main()
 	//Testing copy constructor
 
 	Array<float>	cpyFloat( f );
-
-	std::cout << "After copy constructor cpyFloat( f )" << std::endl;
+	
+	std::cout << "Testing after copy constructor cpyFloat( f )" << std::endl;
 	try
 	{
 		for (int i = 0; i < N1; i++)
@@ -62,7 +62,7 @@ int	main()
 	Array<float>		equal;
 
 	equal = f;
-	std::cout << "After copy assignment operator equal( f )" << std::endl;
+	std::cout << "Testing after copy assignment operator equal( f )" << std::endl;
 	try
 	{
 		for (int i = 0; i < N1; i++)
@@ -75,5 +75,11 @@ int	main()
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
-	
+	std::cout << "Testing with default type array" << std::endl;
+	Array<float>	stringArray(23);
+
+	for (size_t i = 0; i < stringArray.size(); i++)
+	{
+		std::cout << stringArray[i] << std::endl;
+	}
 }
