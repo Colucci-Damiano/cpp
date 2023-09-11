@@ -3,8 +3,6 @@
 
 #include <string>
 
-
-
 class ScalarConverter
 {
 	public:
@@ -23,6 +21,7 @@ class ScalarConverter
 		static bool		isInteger( std::string const & type );
 		static bool		checkIntOverflow( std::string const & type );
 		static bool		isFloatDouble( std::string const & type );
+
 		static types	detectType( std::string const & type );
 
 		static void		fromChar( std::string const & type );
@@ -33,8 +32,9 @@ class ScalarConverter
 		static void		convert( std::string const & type );
 
 	private:
+
 		ScalarConverter();
 		ScalarConverter( ScalarConverter const & other );
 		~ScalarConverter();
-		ScalarConverter&	operator=( ScalarConverter const & other );
+		ScalarConverter&	operator=( ScalarConverter const & other );	
 };

@@ -5,15 +5,10 @@
 
 uintptr_t	Serializer::serialize(Data* ptr)
 {
-	void*	p = reinterpret_cast<void*>(ptr);
-
-	uintptr_t	u = (uintptr_t)p;
-	return (u);
+	return (reinterpret_cast<uintptr_t>(ptr));
 }
 
 Data*		Serializer::deserialize(uintptr_t raw)
 {
-	void*	p = (void *)raw;
-
-	return (reinterpret_cast<Data*>(p));
+	return (reinterpret_cast<Data *>(raw));
 }

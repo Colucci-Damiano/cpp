@@ -3,6 +3,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <exception>
+#include <ctime>
+#include <sys/time.h>
 
 Base::~Base(){};
 
@@ -18,10 +20,12 @@ C::~C(){};
 
 Base*	generate( void )
 {
-	int		r;
+	struct timeval	currentTime;
+	gettimeofday(&currentTime, NULL);
+	std::srand(currentTime.tv_usec);
 
-	srand(time(NULL));
-	r = rand() % 3;
+	int	r = rand() % 3;
+
 	switch (r)
 	{
 		case 0:
@@ -53,13 +57,13 @@ void	identify(Base* p)
 		std::cout << "Type of pointer unknown" << std::endl;
 }
 
-void	identify(Base& p)
+void	identify(Base & p)
 {
 	try
 	{
-		dynamic_cast<A &>(p);
+		A&	a = dynamic_cast<A &>(p);
+		(void)a;
 		std::cout << "Actual type of reference is A" << std::endl;
-		return ;
 	}
 	catch(std::exception & e)
 	{
@@ -68,9 +72,9 @@ void	identify(Base& p)
 
 	try
 	{
-		dynamic_cast<B &>(p);
+		B&	b = dynamic_cast<B &>(p);
+		(void)b;
 		std::cout << "Actual type of reference is B" << std::endl;
-		return ;
 	}
 	catch(std::exception & e)
 	{
@@ -79,14 +83,12 @@ void	identify(Base& p)
 
 	try
 	{
-		dynamic_cast<C &>(p);
-		std::cout << "Actual type of pointer is C" << std::endl;
-		return ;
+		C&	c = dynamic_cast<C &>(p);
+		(void)c;
+		std::cout << "Actual type of reference is C" << std::endl;
 	}
 	catch(std::exception & e)
 	{
 
 	}
-
-	std::cout << "Unknown type of reference" << std::endl;
 }

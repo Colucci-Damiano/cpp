@@ -18,8 +18,6 @@ void	ScalarConverter::fromChar( std::string const & type )
 	std::cout << "Double: " << static_cast<double>(c) << std::endl;
 }
 
-
-
 void	ScalarConverter::fromInt( std::string const & type )
 {
 	int			n = std::atoi(type.c_str());
@@ -104,32 +102,32 @@ void	ScalarConverter::convert( std::string const & type )
 	//Convert string into that type
 	switch (data)
 	{
-	case CHAR:
-		std::cout << "Detected char" << std::endl;
-		fromChar(type);
-		break;
-	
-	case INT:
-		std::cout << "Detected int" << std::endl;
-		fromInt(type);
-		break;
-	
-	case FLOAT:
-		std::cout << "Detected float" << std::endl;
-		fromFloat(type);
-		break;
-	
-	case DOUBLE:
-		std::cout << "Detected double" << std::endl;
-		fromDouble(type);
-		break;
-	
-	case UNKNOWN:
-		std::cout << "Type of literal " << type << " not detected" << std::endl;
-		break;
+		case CHAR:
+			std::cout << "Detected char" << std::endl;
+			fromChar(type);
+			break;
+		
+		case INT:
+			std::cout << "Detected int" << std::endl;
+			fromInt(type);
+			break;
+		
+		case FLOAT:
+			std::cout << "Detected float" << std::endl;
+			fromFloat(type);
+			break;
+		
+		case DOUBLE:
+			std::cout << "Detected double" << std::endl;
+			fromDouble(type);
+			break;
+		
+		case UNKNOWN:
+			std::cout << "Type of literal " << type << " not detected" << std::endl;
+			break;
 
-	default:
-		break;
+		default:
+			break;
 	}
 	//Cast the conversion in the other types
 	//Display the results

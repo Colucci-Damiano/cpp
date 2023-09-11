@@ -6,13 +6,14 @@
 
 int	main()
 {
+	//Test 1
 	std::cout << "TEST1" << std::endl;
 	Data		data;
 	uintptr_t	raw = Serializer::serialize(&data);
 
 	data.name = "Damiano";
 	data.lastName = "Colucci";
-	data.age = 23;
+	data.age = 24;
 
 	std::cout	<< "Name: " << data.name
 				<< " Last name: " << data.lastName
@@ -25,6 +26,9 @@ int	main()
 				<< " Last name: " << ptr->lastName
 				<< " Age: " << ptr->age
 				<< std::endl;
+
+	/*	TEST 2	*/
+
 	std::cout << "TEST2" << std::endl;
 	Data	newData;
 
