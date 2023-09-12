@@ -19,7 +19,7 @@ class Span
 				MaxNumbersException(std::string const & msg);
 				virtual ~MaxNumbersException() throw();
 				
-				virtual char const *	what() throw();
+				char const *	what() const throw();
 			private:
 				std::string		_msg;
 		};
@@ -30,14 +30,22 @@ class Span
 				NoSpanException(std::string const & msg);
 				virtual ~NoSpanException() throw();
 				
-				virtual char const *	what() throw();
+				char const *	what() const throw();
 			private:
 				std::string		_msg;
 		};
 
-		size_t	getMaxSize() const;
-		size_t	getCurrentSize() const;
+		size_t	getMaxSize( void ) const;
+		size_t	getCurrentSize( void ) const;
+
 		void	addNumber( int const number );
+
+		template<typename T>
+		void	multipleAdd(typename T::iterator start, typename T::iterator end)
+		{
+			
+		}
+
 		int		shortestSpan( void ) const;
 		int		longestSpan( void ) const;
 
@@ -45,6 +53,5 @@ class Span
 		Span();
 
 		unsigned int			_maxSize;
-		unsigned int			_currentSize;
 		std::vector<int>		_vectorInt; // Which container should i use?
 };

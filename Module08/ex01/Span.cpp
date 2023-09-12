@@ -8,21 +8,19 @@
 //                            Span class canonical form                            //
 //*********************************************************************************//
 
-Span::Span( unsigned int N ) : _maxSize( N ), _currentSize(0) {}
+Span::Span( unsigned int N ) : _maxSize( N ) {}
 
 Span::Span( Span const & other )
 {
-	if (this != &other)
-	{
-		
-	}
+	*this = other;
 }
 
 Span&	Span::operator=( Span const & other )
 {
 	if (this != &other)
 	{
-
+		this->_maxSize = other._maxSize;
+		this->_vectorInt = other._vectorInt;
 	}
 	return (*this);
 }
@@ -37,7 +35,7 @@ Span::MaxNumbersException::MaxNumbersException( std::string const & msg ) : _msg
 
 Span::MaxNumbersException::~MaxNumbersException() throw() {}
 
-char const *	Span::MaxNumbersException::what() throw()
+char const *	Span::MaxNumbersException::what() const throw()
 {
 	return (this->_msg.c_str());
 }
@@ -47,7 +45,7 @@ Span::NoSpanException::NoSpanException( std::string const & msg ) : _msg(msg){}
 
 Span::NoSpanException::~NoSpanException() throw() {}
 
-char const *	Span::NoSpanException::what() throw()
+char const *	Span::NoSpanException::what() const throw()
 {
 	return (this->_msg.c_str());
 }
@@ -76,7 +74,7 @@ void			Span::addNumber(int const number)
 int				Span::shortestSpan( void ) const
 {
 	if (this->getCurrentSize() <= 1)
-		throw (Span::NoSpanException("NoSpanException"));
+		throw (Span::NoSpanException("NotEnoughNumberForSpan"));
 
 	int								minSpan = std::numeric_limits<int>::max();
 	std::vector<int>				cpy(this->_vectorInt);

@@ -12,8 +12,7 @@ class MutantStack : public std::stack<T, Container >
 		MutantStack<T, Container>(){}
 		MutantStack<T, Container>(MutantStack<T, Container> const & other)
 		{
-			if (this != &other)
-				*this = other;
+			*this = other;
 		}
 		virtual ~MutantStack<T, Container>(){}
 		MutantStack<T, Container>&	operator=(MutantStack<T, Container> const & other)
@@ -26,9 +25,9 @@ class MutantStack : public std::stack<T, Container >
 		}
 
 		typedef typename std::stack<T, Container>::container_type::iterator					iterator;
-		typedef typename std::stack<T, Container>::container_type::const_iterator				const_iterator;
+		typedef typename std::stack<T, Container>::container_type::const_iterator			const_iterator;
 		typedef typename std::stack<T, Container>::container_type::reverse_iterator			reverse_iterator;
-		typedef typename std::stack<T, Container>::container_type::const_reverse_iterator		const_reverse_iterator;
+		typedef typename std::stack<T, Container>::container_type::const_reverse_iterator	const_reverse_iterator;
 
 		iterator				begin( void )
 		{

@@ -17,10 +17,7 @@ const int	Fixed::_fractBits = 8;
 
 // Constructors
 
-Fixed::Fixed( void )
-{
-	this->setRawBits(0);
-}
+Fixed::Fixed( void ) : _fixedValue(0) {}
 
 Fixed::~Fixed( void ){}
 
@@ -101,8 +98,8 @@ bool	Fixed::operator!=(const Fixed &fixed) const
 
 Fixed	Fixed::operator+(const Fixed &fixed) const
 {
-	int		sum;
 	Fixed	obj;
+	int		sum;
 
 	sum = this->getRawBits() + fixed.getRawBits();
 	obj.setRawBits(sum);
@@ -149,7 +146,7 @@ Fixed	Fixed::operator++( void )
 Fixed	Fixed::operator++( int )
 {
 	Fixed	cpy(*this);
-	
+
 	this->setRawBits(this->getRawBits() + 1);
 	return (cpy);
 }

@@ -25,6 +25,6 @@ class Intern
 
 		AForm*	makeForm( std::string const & name, std::string const & target ) const ;
 	private:
-		AForm*		(*_generateForm[3])( std::string const & target );
-		std::string	_nameForm[3];
+		AForm*			(*_generateForm[3])( std::string const & target );
+		std::string		_nameForm[3];
 };
