@@ -67,8 +67,15 @@ size_t	Span::getCurrentSize() const
 void			Span::addNumber(int const number)
 {
 	if (this->getCurrentSize() == _maxSize)
-		throw (Span::MaxNumbersException("MaxNumbersReachedException"));
+		throw (Span::MaxNumbersException("MaxNumberReached"));
 	this->_vectorInt.push_back( number );
+}
+
+void			Span::multipleAdd(std::vector<int>::iterator start, std::vector<int>::iterator end)
+{
+	if (std::distance(start, end) + this->getCurrentSize() > this->getMaxSize())
+		throw (Span::NoSpanException("MaxNumberReached"));
+	this->_vectorInt.insert(this->_vectorInt.end(), start, end);	
 }
 
 int				Span::shortestSpan( void ) const

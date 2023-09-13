@@ -4,6 +4,7 @@
 #include <string>
 #include <exception>
 #include <vector>
+#include <algorithm>
 
 class Span
 {
@@ -40,11 +41,15 @@ class Span
 
 		void	addNumber( int const number );
 
-		template<typename T>
+		/* template<typename T>
 		void	multipleAdd(typename T::iterator start, typename T::iterator end)
 		{
-			
-		}
+			if (std::distance(start, end) + this->getCurrentSize() > this->getMaxSize())
+				throw (Span::NoSpanException("NotEnoughNumberForSpan"));
+			std::for_each(start, end, &Span::addNumber);
+		} */
+
+		void	multipleAdd(std::vector<int>::iterator start, std::vector<int>::iterator end);
 
 		int		shortestSpan( void ) const;
 		int		longestSpan( void ) const;

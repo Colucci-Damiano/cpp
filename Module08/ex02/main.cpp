@@ -4,9 +4,9 @@
 #include <iostream>
 #include <vector>
 
-int	main()
+int main()
 {
-	MutantStack<int, std::vector<int> > mstack;
+	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl;
@@ -17,8 +17,8 @@ int	main()
 	mstack.push(737);
 	//[...]
 	mstack.push(0);
-	MutantStack<int, std::vector<int> >::iterator it = mstack.begin();
-	MutantStack<int, std::vector<int> >::iterator ite = mstack.end();
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
 	++it;
 	--it;
 	while (it != ite)
@@ -26,6 +26,6 @@ int	main()
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<int, std::vector<int> > s(mstack);
+	std::stack<int> s(mstack);
 	return 0;
 }
