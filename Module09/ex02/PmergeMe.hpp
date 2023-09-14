@@ -13,19 +13,12 @@ class PmergeMe
 		~PmergeMe();
 		PmergeMe&	operator=( PmergeMe const & other );
 
-		std::vector<int>&	getVector(void);
-		std::deque<int>&	getDeque(void);
+		void	addNumber(int const);
+		void	displayContainers(void) const;
+		void	mergeInsertionSort(void);
 
-		void	loadArg( std::string const & );
-		void	vectorAlgorithm( int start, int end );
-		void	vectorMerge(int start, int q, int end);
-		void	vectorInsertion(int start, int end);
-		void	dequeAlgorithm( void );
-		void	printArgs( void ) const;
 	private:
-		std::vector<int>	_vector;
-		std::deque<int>		_deque;
-		static const int	_K;
+		static unsigned int		_K;
+		std::vector<int>		_vec;
+		std::deque<int>			_deq;
 };
-
-bool	isNumber( std::string const & );
