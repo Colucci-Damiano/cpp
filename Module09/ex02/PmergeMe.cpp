@@ -1,6 +1,7 @@
 
 #include "PmergeMe.hpp"
 #include <iostream>
+#include <ctime>
 
 PmergeMe::PmergeMe(){}
 
@@ -22,6 +23,26 @@ void	PmergeMe::addNumber( int number )
 {
 	this->_vec.push_back(number);
 	this->_deq.push_back(number);
+}
+
+void	PmergeMe::mergeInsertionSort()
+{
+
+}
+
+void	PmergeMe::mergeResult(void)
+{
+	clock_t	start = clock() * 1000000;
+	std::cout << "clocks: " << start << std::endl;
+
+	/*		CODE		*/
+
+	clock_t end = clock() * 1000000;
+	std::cout << "clocks: " << start << std::endl;
+
+	double elapsedTime = static_cast<double>(end - start) / static_cast<double>(CLOCKS_PER_SEC);
+
+	std::cout << "Elapsed time: " << elapsedTime << std::endl;
 }
 
 void	PmergeMe::displayContainers(void) const

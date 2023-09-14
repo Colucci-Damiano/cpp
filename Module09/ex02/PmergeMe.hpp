@@ -16,6 +16,7 @@ class PmergeMe
 		void	addNumber(int const);
 		void	displayContainers(void) const;
 		void	mergeInsertionSort(void);
+		void	mergeResult(void);
 
 	private:
 		static unsigned int		_K;

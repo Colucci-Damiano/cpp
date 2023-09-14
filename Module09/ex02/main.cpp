@@ -81,5 +81,6 @@ int	main(int ac, char **av)
 		}
 	}
 	merge.displayContainers();
+	merge.mergeResult();
 	return (0);
 }
