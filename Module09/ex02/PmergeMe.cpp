@@ -93,7 +93,7 @@ void	PmergeMe::mergeResult(void)
 	std::cout << "\033[0m";
 
 	double elapsedTime = static_cast<double>(end - start) / static_cast<double>(CLOCKS_PER_SEC) * 1000000.0;
-	std::cout << std::fixed  <<"Time to process a range of "<< _vec.size() <<" elements with std::vector : " << elapsedTime << " us" << std::endl;
+	std::cout << "Time to process a range of "<< _vec.size() <<" elements with std::vector : " << elapsedTime << " us" << std::endl;
 
 	elapsedTime = static_cast<double>(endDeq - startDeq) / static_cast<double>(CLOCKS_PER_SEC) * 1000000.0;
 	std::cout << "Time to process a range of "<< _deq.size() <<" elements with std::deque : " << elapsedTime << " us" << std::endl;
