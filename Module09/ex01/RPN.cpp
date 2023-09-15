@@ -56,7 +56,7 @@ void	RPN::reversePolishNotation( std::string const & s )
 		else if (tokens.find(s[i]) != std::string::npos)
 		{
 			if (container.size() < 2)
-				throw (std::exception());
+				throw (std::runtime_error("Error operator"));
 			a2 = container.top();
 			container.pop();
 			a1 = container.top();
@@ -66,9 +66,11 @@ void	RPN::reversePolishNotation( std::string const & s )
 		else if (copy[i] != ' ' || copy[i] != '\t')
 			throw(std::runtime_error("Unregognised token"));
 	}
+	if (container.size() > 1)
+		throw(std::runtime_error("Error"));
 	while (!container.empty())
 	{
-		std::cout << "Result: " << container.top() <<  std::endl;
+		std::cout << container.top() <<  std::endl;
 		container.pop();
 	}
 }

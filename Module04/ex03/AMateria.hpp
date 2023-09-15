@@ -12,7 +12,6 @@ class ICharacter;
 class AMateria
 {
 	public:
-
 		AMateria();
 		AMateria( const std::string &type );
 		virtual ~AMateria();
@@ -25,7 +24,6 @@ class AMateria
 	protected:
 
 		std::string		_type;
-
 };
 
 #endif
