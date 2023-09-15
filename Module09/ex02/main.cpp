@@ -80,7 +80,6 @@ int	main(int ac, char **av)
 			std::cerr << "Exception: " << e.what() << std::endl;
 		}
 	}
-	merge.displayContainers();
 	merge.mergeResult();
 	return (0);
 }

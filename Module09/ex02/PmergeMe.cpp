@@ -2,6 +2,10 @@
 #include "PmergeMe.hpp"
 #include <iostream>
 #include <ctime>
+#include <algorithm>
+#include <iomanip>
+
+unsigned int const	PmergeMe::_K = 3;
 
 PmergeMe::PmergeMe(){}
 
@@ -25,42 +29,72 @@ void	PmergeMe::addNumber( int number )
 	this->_deq.push_back(number);
 }
 
-void	PmergeMe::mergeInsertionSort()
+template<typename IT>
+void	PmergeMe::insertionSort(IT first, IT last)
 {
-
+	std::sort(first, last);
 }
 
-void	PmergeMe::mergeResult(void)
+template<typename T, typename IT>
+void	PmergeMe::mergeInsertionSort(T & container, IT first, IT last)
 {
-	clock_t	start = clock() * 1000000;
-	std::cout << "clocks: " << start << std::endl;
+	if (std::distance(first, last) > PmergeMe::_K)
+	{
+		//std::cout << std::distance(first, last) << " is the distance." << std::endl;
+		IT newLast = first + std::distance(first, last) / 2;
+		mergeInsertionSort(container, first, newLast);
+		mergeInsertionSort(container, newLast, last);
 
-	/*		CODE		*/
+		T	copy(std::distance(first, last));
 
-	clock_t end = clock() * 1000000;
-	std::cout << "clocks: " << start << std::endl;
+		std::merge(first, newLast, newLast, last, copy.begin());
 
-	double elapsedTime = static_cast<double>(end - start) / static_cast<double>(CLOCKS_PER_SEC);
-
-	std::cout << "Elapsed time: " << elapsedTime << std::endl;
+		IT	beg = copy.begin();
+		IT	end = copy.end();
+		std::copy(beg, end, first);
+		// std::cout << "Copy merge: " << std::endl;
+		// for(; beg != end; beg++)
+		// 	std::cout << *beg << " ";
+		// std::cout << std::endl;
+	}
+	else
+	{
+		insertionSort(first, last);
+	}
 }
 
 void	PmergeMe::displayContainers(void) const
 {
 	size_t const	vLength = _vec.size();
-	size_t const	dLength = _deq.size();
 
-	std::cout << "Vector Container: " << std::endl;
 	for (size_t i = 0; i < vLength; i++)
 	{
 		std::cout << _vec[i] << " ";
 	}
-	std::cout << std::endl;
 
-	std::cout << "Deque Container: " << std::endl;
-	for (size_t i = 0; i < dLength; i++)
-	{
-		std::cout << _deq[i] << " ";
-	}
 	std::cout << std::endl;
+}
+
+void	PmergeMe::mergeResult(void)
+{
+	std::cout << "\033[31mBefore:	";
+	displayContainers();
+
+	clock_t	start = std::clock();
+	mergeInsertionSort(_vec, _vec.begin(), _vec.end());
+	clock_t end = std::clock();
+
+	clock_t startDeq = std::clock();
+	mergeInsertionSort(_deq, _deq.begin(), _deq.end());
+	clock_t	endDeq = std::clock();
+
+	std::cout << "\033[32mAfter:	";
+	displayContainers();
+	std::cout << "\033[0m";
+
+	double elapsedTime = static_cast<double>(end - start) / static_cast<double>(CLOCKS_PER_SEC) * 1000000.0;
+	std::cout << std::fixed  <<"Time to process a range of "<< _vec.size() <<" elements with std::vector : " << elapsedTime << " us" << std::endl;
+
+	elapsedTime = static_cast<double>(endDeq - startDeq) / static_cast<double>(CLOCKS_PER_SEC) * 1000000.0;
+	std::cout << "Time to process a range of "<< _deq.size() <<" elements with std::deque : " << elapsedTime << " us" << std::endl;
 }

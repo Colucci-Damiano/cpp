@@ -15,11 +15,14 @@ class PmergeMe
 
 		void	addNumber(int const);
 		void	displayContainers(void) const;
-		void	mergeInsertionSort(void);
+		template<typename IT>
+		void	insertionSort(IT, IT);
+		template<typename T, typename IT>
+		void	mergeInsertionSort(T &, IT, IT);
 		void	mergeResult(void);
 
 	private:
-		static unsigned int		_K;
-		std::vector<int>		_vec;
-		std::deque<int>			_deq;
+		static unsigned int const		_K;
+		std::vector<int>				_vec;
+		std::deque<int>					_deq;
 };

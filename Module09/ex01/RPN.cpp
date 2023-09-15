@@ -63,7 +63,7 @@ void	RPN::reversePolishNotation( std::string const & s )
 			container.pop();
 			container.push(operations(a1, a2, s[i]));
 		}
-		else if (copy[i] != ' ' || copy[i] != '\t')
+		else if (copy[i] != ' ' && copy[i] != '\t')
 			throw(std::runtime_error("Unregognised token"));
 	}
 	if (container.size() > 1)
