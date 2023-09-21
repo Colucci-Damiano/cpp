@@ -40,7 +40,7 @@ class	Array
 			}
 			return (*this);
 		}
-		T&	operator[]( int index )
+		T&	operator[]( int index ) const
 		{
 			if (index >= static_cast<int>(this->size()) || index < 0)
 				throw(std::runtime_error("Out of index"));

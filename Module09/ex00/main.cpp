@@ -10,10 +10,16 @@ int	main( int ac, char **av )
 		std::cerr << "Error\nUsage: ./btc <inputFile>" << std::endl;
 		return (1);
 	}
-	BitcoinExchange		btc(av[1]);
 
-	btc.fillMap("data.csv");
-	btc.exchanger();
+	try
+	{
+		BitcoinExchange		btc("data.csv");
+		btc.exchanger(av[1]);
+	}
+	catch( std::exception & e )
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
 
 	return (0);
 }

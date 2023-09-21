@@ -12,6 +12,12 @@ int	main()
 
 	Array<float>	f(N1);
 
+	Array<std::string>	s(5);
+	for (int i = 0; i < 5; i++)
+	{
+		s[i] += i + 48;
+		std::cout << s[i] << std::endl;
+	}
 	//Filling array
 	try
 	{
