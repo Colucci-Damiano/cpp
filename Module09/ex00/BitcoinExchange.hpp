@@ -13,7 +13,7 @@ class	BitcoinExchange
 		~BitcoinExchange();
 		BitcoinExchange&	operator=( BitcoinExchange const & );
 
-		void				fillDatabase( std::string const &  );
+		void				fillMap( std::string const &  );
 		void				exchanger( void ) const;
 	private:
 		std::map<std::string, double>	_map;

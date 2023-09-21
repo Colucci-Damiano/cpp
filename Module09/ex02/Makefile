@@ -20,6 +20,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(STD) $(OBJS) -o $@
+	@echo "\033[32mCompiled ✅"
 
 %.o : %.cpp $(HEADERS)
 	$(CC) $(CFLAGS) $(STD) $< -c
