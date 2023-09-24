@@ -32,7 +32,21 @@ void	PmergeMe::addNumber( int number )
 template<typename IT>
 void	PmergeMe::insertionSort(IT first, IT last)
 {
-	std::sort(first, last);
+	if (first == last)
+		return;
+	IT		i = first + 1;
+	while ( i != last)
+	{
+		IT j	= i - 1;
+		while ( j != first && *j > *(j - 1) )
+		{
+			IT	tmp = j - 1;
+			std::swap(j, tmp);
+			j--;
+		}
+		i++;
+	}
+	//std::sort(first, last);
 }
 
 template<typename T, typename IT>
@@ -40,7 +54,6 @@ void	PmergeMe::mergeInsertionSort(T & container, IT first, IT last)
 {
 	if (std::distance(first, last) > PmergeMe::_K)
 	{
-		//std::cout << std::distance(first, last) << " is the distance." << std::endl;
 		IT newLast = first + std::distance(first, last) / 2;
 		mergeInsertionSort(container, first, newLast);
 		mergeInsertionSort(container, newLast, last);
@@ -52,10 +65,6 @@ void	PmergeMe::mergeInsertionSort(T & container, IT first, IT last)
 		IT	beg = copy.begin();
 		IT	end = copy.end();
 		std::copy(beg, end, first);
-		// std::cout << "Copy merge: " << std::endl;
-		// for(; beg != end; beg++)
-		// 	std::cout << *beg << " ";
-		// std::cout << std::endl;
 	}
 	else
 	{

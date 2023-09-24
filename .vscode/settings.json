@@ -54,6 +54,7 @@
 		"optional": "cpp",
 		"ranges": "cpp",
 		"map": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"cfenv": "cpp"
 	}
 }

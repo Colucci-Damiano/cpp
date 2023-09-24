@@ -60,11 +60,16 @@ void				printExchange(std::string const & date, double const & value, double con
 		std::cout << date << " => " << value << " = " << value * exchanger << std::endl;
 }
 
-void				BitcoinExchange::printLine(std::string const & date, double const & value) const
+void				BitcoinExchange::printLine(std::string const & date, double const & value, bool fail) const
 {
 	if (invalidDate(date))
 	{
 		std::cout << "Error: bad input => " << date << std::endl;
+		return ;
+	}
+	if (fail)
+	{
+		std::cout << "Error: value not valid" << std::endl;
 		return ;
 	}
 	std::map<std::string, double>::const_reverse_iterator		rit = _map.rbegin();
@@ -87,10 +92,9 @@ void				BitcoinExchange::fillMap( std::string const & database )
 	std::ifstream		is(database.c_str());
 
 	if (is.fail())
-		throw(std::runtime_error("Database file not found"));
+		throw(std::runtime_error("Database file 'data.csv' not found"));
 	this->_map.erase(this->_map.begin(), this->_map.end());
 	std::getline(is, line);
-	std::cout << "First line: " << line << std::endl;
 	while (!is.eof())
 	{
 		std::getline(is, line);
@@ -122,11 +126,8 @@ void				BitcoinExchange::exchanger( std::string const & inputFile ) const
 		std::getline(is, line);
 		std::istringstream	iss(line);
 
-		if (iss.good())
-		{
-			std::getline(iss, date, '|');
-			iss >> value;
-			printLine(date, value);
-		}
+		std::getline(iss, date, '|');
+		iss >> value;
+		printLine(date, value, iss.fail());
 	}
 }

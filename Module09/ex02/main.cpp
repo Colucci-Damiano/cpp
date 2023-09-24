@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 {
 	if (ac <= 1)
 	{
-		std::cerr << "Error\nUsage: ./PmergeMe n1 n2 n3 n4 ... nn" << std::endl;
+		std::cout << "Error\nUsage: ./PmergeMe n1 n2 n3 n4 ... nn" << std::endl;
 		return (1);
 	}
 	
@@ -77,7 +77,7 @@ int	main(int ac, char **av)
 		}
 		catch(std::exception & e)
 		{
-			std::cerr << "Exception: " << e.what() << std::endl;
+			std::cout << "Exception: " << e.what() << std::endl;
 		}
 	}
 	merge.mergeResult();

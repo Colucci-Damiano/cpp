@@ -8,7 +8,7 @@ template<typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container >
 {
 	public:
-		
+
 		MutantStack<T, Container>(){}
 		MutantStack<T, Container>(MutantStack<T, Container> const & other)
 		{

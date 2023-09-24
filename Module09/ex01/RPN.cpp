@@ -30,7 +30,11 @@ int		RPN::operations(int a1, int a2, char token)
 	if (token == '*')
 		return ( a1 * a2 );
 	else if (token == '/')
+	{
+		if (a2 == 0)
+			throw(std::runtime_error("Division by 0"));
 		return ( a1 / a2 );
+	}
 	else if (token == '+')
 		return ( a1 + a2 );
 	else if (token == '-')
