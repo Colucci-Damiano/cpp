@@ -29,24 +29,22 @@ void	PmergeMe::addNumber( int number )
 	this->_deq.push_back(number);
 }
 
-template<typename IT>
-void	PmergeMe::insertionSort(IT first, IT last)
+template<typename Iterator>
+void	PmergeMe::insertionSort(Iterator first, Iterator last)
 {
-	if (first == last)
-		return;
-	IT		i = first + 1;
-	while ( i != last)
-	{
-		IT j	= i - 1;
-		while ( j != first && *j > *(j - 1) )
-		{
-			IT	tmp = j - 1;
-			std::swap(j, tmp);
-			j--;
-		}
-		i++;
-	}
-	//std::sort(first, last);
+    for (Iterator i = first + 1; i != last; ++i) {
+        int key = *i;
+        Iterator j = i - 1;
+        
+        // Move elements of the range [first, i) that are greater than key
+        // to one position ahead of their current position
+        while (j >= first && *j > key) {
+            *(j + 1) = *j;
+            --j;
+        }
+        
+        *(j + 1) = key;
+    }
 }
 
 template<typename T, typename IT>
